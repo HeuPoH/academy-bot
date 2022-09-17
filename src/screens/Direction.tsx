@@ -1,17 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 // import { Circle, Svg } from 'react-native-svg';
 
 import { BaseView } from '~library/base/BaseView';
-import { ScreenNavAndRouteProps, ScreensName } from '~library/StackNavigators';
+import { ButtonToBack } from '~library/components/ButtonToBack';
+import {
+  ScreenNavAndRouteProps,
+  ScreenNavigationProp,
+  ScreensName
+} from '~library/StackNavigators';
 import { DirectionsModel } from '~models/Directions';
+import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
+import { icons } from '~res/images/icons';
 
-type Props = {
+interface Props extends ScreenNavigationProp<ScreensName.Direction> {
   model: DirectionsModel;
-} & ScreenNavAndRouteProps<ScreensName.Direction>;
+}
 
 export class Direction extends BaseView<Props> {
+  static navigationOptions = (): any => {
+    return {
+      header: (p: ScreenNavAndRouteProps<ScreensName.Direction>) => {
+        const dir = Models.DirectionsModel().getDirection(p.route.params.dirId);
+        return (
+          <ImageBackground style={styles.headerCont} source={icons.bgDirection}>
+            <ButtonToBack
+              styles={{ paddingBottom: 86 }}
+              goBack={p.navigation.goBack}
+            />
+            <Text style={styles.headerTitle}>{dir?.name}</Text>
+            <Text style={styles.headerSubTitle}>{dir?.code}</Text>
+          </ImageBackground>
+        );
+      }
+    };
+  };
+
   componentDidMount() {
     this.props.model.fetch({ specId: 1 });
     super.componentDidMount();
@@ -37,13 +62,34 @@ export class Direction extends BaseView<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    paddingTop: 30
+  },
+  headerCont: {
+    backgroundColor: COLOR.WHITE,
+    paddingTop: 10
+  },
+  headerTitle: {
+    fontWeight: '600',
+    fontSize: 20,
+    color: COLOR.BLACK,
+    textTransform: 'uppercase',
+    paddingLeft: 16
+  },
+  headerSubTitle: {
+    fontWeight: '500',
+    fontSize: 14,
+    color: COLOR.BLACK,
+    opacity: 0.5,
+    marginVertical: 10,
+    marginHorizontal: 16
   },
   descBlock: {
     fontWeight: '400',
     color: COLOR.BLACK,
     fontSize: 16,
     lineHeight: 21,
-    marginBottom: 30
+    marginBottom: 30,
+    textAlign: 'justify'
   }
 });

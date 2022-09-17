@@ -37,5 +37,6 @@ export const icons = {
   arrowRight: require('../icons/arrow_right.png'),
   arrowLeft: require('../icons/arrow_left.png'),
   arrowRightSmall: require('../icons/arrow_right_small.png'),
-  bgDirections: require('../bg-directions.png')
+  bgDirections: require('../bg-directions.png'),
+  bgDirection: require('../bg-direction.png')
 };

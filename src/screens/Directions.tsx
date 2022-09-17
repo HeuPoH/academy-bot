@@ -1,4 +1,4 @@
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   FlatList,
@@ -11,7 +11,8 @@ import {
 
 import { row, textDecorationLine, upperCase } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
-import { IconButton } from '~library/components/IconButton';
+import { Button } from '~library/components/Button';
+import { ButtonToBack } from '~library/components/ButtonToBack';
 import { Direction } from '~library/services/specialtiesReq';
 import {
   ScreenNavAndRouteProps,
@@ -22,12 +23,12 @@ import type { DirectionsModel } from '~models/Directions';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
-type Props = {
+interface Props extends ScreenNavigationProp<ScreensName.Directions> {
   model: DirectionsModel;
-} & ScreenNavigationProp<ScreensName.Directions>;
+}
 
 export class Directions extends BaseView<Props> {
-  static navigationOptions = (): NativeStackNavigationOptions => {
+  static navigationOptions = (): any => {
     return {
       header: (p: ScreenNavAndRouteProps<ScreensName.Directions>) => {
         return (
@@ -35,19 +36,12 @@ export class Directions extends BaseView<Props> {
             style={styles.headerCont}
             source={icons.bgDirections}
           >
-            <IconButton
-              styleBtn={styles.headerBtnBack}
-              styleTxt={styles.headerBtnBackText}
-              color='transparent'
-              title='Назад'
-              onPress={p.navigation.goBack}
-              src={icons.arrowLeft}
-            />
+            <ButtonToBack styles={{ paddingBottom: 37 }} goBack={p.navigation.goBack} />
             <Text style={styles.headerTitle}>СПЕЦИАЛЬНОСТИ</Text>
             <View style={{ ...styles.headerSubTitle, ...row }}>
               <Text>в сфере </Text>
               <Text style={{ ...textDecorationLine, ...upperCase }}>
-                {p.route.params?.name}
+                {p.route.params?.title}
               </Text>
             </View>
           </ImageBackground>
@@ -62,6 +56,10 @@ export class Directions extends BaseView<Props> {
     super.componentDidMount();
   }
 
+  private onNavigateTo(id: number) {
+    this.props.navigation.navigate(ScreensName.Direction, { dirId: id });
+  }
+
   private renderItem(direction: Direction, i: number) {
     const style = {
       ...styles.item,
@@ -69,10 +67,14 @@ export class Directions extends BaseView<Props> {
     };
 
     return (
-      <View style={style}>
+      <Button
+        color='transparent'
+        styleBtn={style}
+        onPress={() => this.onNavigateTo(direction.id)}
+      >
         <Text style={styles.itemName}>{direction.name}</Text>
         <Image source={icons.arrowRightSmall} />
-      </View>
+      </Button>
     );
   }
 

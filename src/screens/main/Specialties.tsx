@@ -52,8 +52,8 @@ export class Specialties extends BaseView<Props> {
     }));
   }
 
-  private onNavigateTo(id: number, name: string) {
-    this.props.navigation.navigate(ScreensName.Directions, { id, name });
+  private onNavigateTo(id: number, title: string) {
+    this.props.navigation.navigate(ScreensName.Directions, { id, title });
   }
 
   private renderItem = (item: Speciality) => {

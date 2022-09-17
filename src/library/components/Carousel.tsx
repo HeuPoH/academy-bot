@@ -67,6 +67,8 @@ export class Carousel<T> extends React.Component<Props<T>> {
           renderItem={this.renderItem}
           data={this.prepareData() as any}
           horizontal
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
     );

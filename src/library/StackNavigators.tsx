@@ -12,7 +12,7 @@ export enum ScreensName {
 
 export type RootStackParams = {
   [ScreensName.Main]: undefined;
-  [ScreensName.Directions]: { id: number; name: string };
+  [ScreensName.Directions]: { id: number; title: string };
   [ScreensName.Direction]: { dirId: number };
 };
 

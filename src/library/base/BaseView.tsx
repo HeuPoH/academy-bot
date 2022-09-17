@@ -2,9 +2,9 @@
 import React from 'react';
 import type { IObservableClass, Observable } from './Observable';
 
-type Props = {
+interface Props {
   model: Observable;
-};
+}
 
 export class BaseView<P extends Props = Props> extends React.Component<P> implements IObservableClass {
   componentDidMount() {

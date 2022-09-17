@@ -31,7 +31,7 @@ export default class App extends React.Component {
             </RootStack.Screen>
             <RootStack.Screen
               name={ScreensName.Direction}
-              initialParams={{ dirId: 1 }}
+              options={DirectionScreen.navigationOptions}
             >
               {(p) => <DirectionScreen model={Models.DirectionsModel()} {...p} />}
             </RootStack.Screen>
