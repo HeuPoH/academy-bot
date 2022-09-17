@@ -9,7 +9,7 @@ import {
   View
 } from 'react-native';
 
-import { row } from '~library/base/baseStyles';
+import { row, textDecorationLine, upperCase } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { IconButton } from '~library/components/IconButton';
 import { Direction } from '~library/services/specialtiesReq';
@@ -34,20 +34,21 @@ export class Directions extends BaseView<Props> {
           <ImageBackground
             style={styles.headerCont}
             source={icons.bgDirections}
-            // resizeMode='cover'
           >
             <IconButton
-              styleBtn={{ width: 100 }}
-              styleTxt={styles.btnBackText}
+              styleBtn={styles.headerBtnBack}
+              styleTxt={styles.headerBtnBackText}
               color='transparent'
               title='Назад'
               onPress={p.navigation.goBack}
               src={icons.arrowLeft}
             />
             <Text style={styles.headerTitle}>СПЕЦИАЛЬНОСТИ</Text>
-            <View style={row}>
+            <View style={{ ...styles.headerSubTitle, ...row }}>
               <Text>в сфере </Text>
-              <Text>{p.route.params?.name}</Text>
+              <Text style={{ ...textDecorationLine, ...upperCase }}>
+                {p.route.params?.name}
+              </Text>
             </View>
           </ImageBackground>
         );
@@ -87,6 +88,7 @@ export class Directions extends BaseView<Props> {
           data={directions}
           keyExtractor={(item) => `directions-${item.id}`}
           renderItem={({ item, index }) => this.renderItem(item, index)}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     );
@@ -97,10 +99,9 @@ const styles = StyleSheet.create({
   container: {
     paddingLeft: 16,
     paddingRight: 16,
-    marginTop: 14
-  },
-  headerCont: {
-    backgroundColor: 'white'
+    paddingTop: 21,
+    paddingBottom: 21,
+    backgroundColor: COLOR.WHITE4
   },
   item: {
     flexDirection: 'row',
@@ -119,19 +120,33 @@ const styles = StyleSheet.create({
     color: COLOR.GREY6,
     fontWeight: '400'
   },
+  headerCont: {
+    backgroundColor: 'white',
+    paddingTop: 25
+  },
+  headerBtnBack: {
+    width: 100,
+    paddingBottom: 37
+  },
+  headerBtnBackText: {
+    fontWeight: '400',
+    fontSize: 17,
+    lineHeight: 22
+  },
   headerTitle: {
+    paddingLeft: 16,
     fontWeight: '600',
     fontSize: 20,
     lineHeight: 24,
     letterSpacing: 0.38,
     color: COLOR.BLACK,
-    paddingLeft: 18
+    paddingBottom: 23,
+    alignItems: 'center'
   },
-  btnBackText: {
-    fontWeight: '400',
-    fontSize: 17,
-    paddingBottom: 18,
-    paddingTop: 35,
-    lineHeight: 22
+  headerSubTitle: {
+    paddingLeft: 16,
+    fontWeight: '500',
+    fontSize: 14,
+    paddingBottom: 30
   }
 });

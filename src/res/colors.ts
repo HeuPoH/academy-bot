@@ -23,6 +23,7 @@ export const COLOR = {
   WHITE: '#FFFFFF',
   WHITE2: '#F2F3F5',
   WHITE3: 'rgba(235, 246, 250, 0.8)',
+  WHITE4: '#F7FAFF',
   BLUE: '#3F8AE0',
   BLUE2: 'rgba(126, 214, 223, 0.8)',
   BLUE3: 'rgba(34, 166, 179, 0.8)',

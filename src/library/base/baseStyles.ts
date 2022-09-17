@@ -8,7 +8,7 @@ export const row: { flexDirection: 'row' | 'column' } = {
   flexDirection: 'row'
 };
 
-export const flex1 = {
+export const flex1: TextStyle = {
   flex: 1
 };
 
@@ -22,10 +22,14 @@ export const textDecorationLine: TextStyle = {
   textDecorationLine: 'underline'
 };
 
-export const alignItemsCenter = {
+export const alignItemsCenter: TextStyle = {
   alignItems: 'center'
 };
 
-export const textAlignCenter = {
+export const textAlignCenter: TextStyle = {
   textAlign: 'center'
+};
+
+export const upperCase: TextStyle = {
+  textTransform: 'uppercase'
 };

@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  ViewStyle
+  View
 } from 'react-native';
 
 import { textAlignCenter } from '~library/base/baseStyles';
@@ -16,7 +16,7 @@ export type ButtonProps = {
   onPress: (event: GestureResponderEvent) => void;
   disabled?: boolean;
   color?: Color;
-  styleBtn?: StyleProp<ViewStyle>;
+  styleBtn?: StyleProp<any>;
   styleTxt?: StyleProp<any>;
   children?: any;
 };
@@ -49,7 +49,9 @@ export function Button(props: ButtonProps) {
       disabled={disabled}
     >
       {children}
-      <Text style={styles.text}>{title}</Text>
+      <View>
+        <Text style={styles.text}>{title}</Text>
+      </View>
     </TouchableOpacity>
   );
 }
