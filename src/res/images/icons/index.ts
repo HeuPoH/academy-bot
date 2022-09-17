@@ -35,5 +35,7 @@ export const icons = {
   pin: require('./calculator/pin.png'),
   microphone: require('./calculator/microphone.png'),
   arrowRight: require('../icons/arrow_right.png'),
-  arrowRightSmall: require('../icons/arrow_right_small.png')
+  arrowLeft: require('../icons/arrow_left.png'),
+  arrowRightSmall: require('../icons/arrow_right_small.png'),
+  bgDirections: require('../bg-directions.png')
 };

@@ -11,80 +11,6 @@ export class SpecialtiesReq {
   }
 }
 
-export type Speciality = {
-  id: number;
-  name: string;
-  countUnivers: number;
-  icon: ImageSourcePropType | JSX.Element;
-  countDirections: number;
-};
-
-const specialties: Speciality[] = [
-  {
-    id: 0,
-    name: 'Управление и экономика',
-    countUnivers: 324,
-    icon: icons.dollar,
-    countDirections: 100
-  },
-  {
-    id: 1,
-    name: 'Техника и технологии',
-    countUnivers: 78,
-    icon: icons.rocket,
-    countDirections: 100
-  },
-  {
-    id: 2,
-    name: 'Информационные технологии',
-    countUnivers: 90,
-    icon: icons.computer,
-    countDirections: 100
-  },
-  {
-    id: 3,
-    name: 'Точные и естественные науки',
-    countUnivers: 23,
-    icon: icons.cube,
-    countDirections: 100
-  },
-  {
-    id: 4,
-    name: 'Медиа, дизайн и архитектура',
-    countUnivers: 40,
-    icon: icons.image,
-    countDirections: 100
-  },
-  {
-    id: 5,
-    name: 'Искусство и творчество',
-    countUnivers: 123,
-    icon: icons.paint,
-    countDirections: 100
-  },
-  {
-    id: 6,
-    name: 'Медицина и здравохранение',
-    countUnivers: 45,
-    icon: icons.sun,
-    countDirections: 100
-  },
-  {
-    id: 7,
-    name: 'Гуманитарные и социальные науки',
-    countUnivers: 5,
-    icon: icons.girl,
-    countDirections: 100
-  },
-  {
-    id: 8,
-    name: 'Безопаность и военное дело',
-    countUnivers: 10,
-    icon: icons.fire,
-    countDirections: 100
-  }
-];
-
 export type Direction = {
   id: number;
   name: string;
@@ -153,6 +79,33 @@ const directions: { [speciality: number]: Direction[] } = {
     {
       id: 6,
       name: 'Управление и экономика (7)',
+      description:
+        'Соображения высшего порядка, а также выбранный нами инновационный путь влечет за собой процесс внедрения и модернизации новых предложений. Разнообразный и богатый опыт консультация с профессионалами из IT позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия? Дорогие друзья, постоянное информационно-техническое обеспечение нашей деятельности в значительной степени обуславливает создание системы обучения кадров, соответствующей насущным потребностям!',
+      countUnivers: 0,
+      passingScore: 1000,
+      budgetPlaces: 100
+    },
+    {
+      id: 7,
+      name: 'Управление и экономика (8)',
+      description:
+        'Соображения высшего порядка, а также выбранный нами инновационный путь влечет за собой процесс внедрения и модернизации новых предложений. Разнообразный и богатый опыт консультация с профессионалами из IT позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия? Дорогие друзья, постоянное информационно-техническое обеспечение нашей деятельности в значительной степени обуславливает создание системы обучения кадров, соответствующей насущным потребностям!',
+      countUnivers: 0,
+      passingScore: 1000,
+      budgetPlaces: 100
+    },
+    {
+      id: 8,
+      name: 'Управление и экономика (9)',
+      description:
+        'Соображения высшего порядка, а также выбранный нами инновационный путь влечет за собой процесс внедрения и модернизации новых предложений. Разнообразный и богатый опыт консультация с профессионалами из IT позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия? Дорогие друзья, постоянное информационно-техническое обеспечение нашей деятельности в значительной степени обуславливает создание системы обучения кадров, соответствующей насущным потребностям!',
+      countUnivers: 0,
+      passingScore: 1000,
+      budgetPlaces: 100
+    },
+    {
+      id: 9,
+      name: 'Управление и экономика (10)',
       description:
         'Соображения высшего порядка, а также выбранный нами инновационный путь влечет за собой процесс внедрения и модернизации новых предложений. Разнообразный и богатый опыт консультация с профессионалами из IT позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия? Дорогие друзья, постоянное информационно-техническое обеспечение нашей деятельности в значительной степени обуславливает создание системы обучения кадров, соответствующей насущным потребностям!',
       countUnivers: 0,
@@ -609,3 +562,77 @@ const directions: { [speciality: number]: Direction[] } = {
     }
   ]
 };
+
+export type Speciality = {
+  id: number;
+  name: string;
+  countUnivers: number;
+  icon: ImageSourcePropType | JSX.Element;
+  countDirections: number;
+};
+
+const specialties: Speciality[] = [
+  {
+    id: 0,
+    name: 'Управление и экономика',
+    countUnivers: 324,
+    icon: icons.dollar,
+    countDirections: directions[0].length
+  },
+  {
+    id: 1,
+    name: 'Техника и технологии',
+    countUnivers: 78,
+    icon: icons.rocket,
+    countDirections: directions[1].length
+  },
+  {
+    id: 2,
+    name: 'Информационные технологии',
+    countUnivers: 90,
+    icon: icons.computer,
+    countDirections: directions[2].length
+  },
+  {
+    id: 3,
+    name: 'Точные и естественные науки',
+    countUnivers: 23,
+    icon: icons.cube,
+    countDirections: directions[3].length
+  },
+  {
+    id: 4,
+    name: 'Медиа, дизайн и архитектура',
+    countUnivers: 40,
+    icon: icons.image,
+    countDirections: directions[4].length
+  },
+  {
+    id: 5,
+    name: 'Искусство и творчество',
+    countUnivers: 123,
+    icon: icons.paint,
+    countDirections: directions[5].length
+  },
+  {
+    id: 6,
+    name: 'Медицина и здравохранение',
+    countUnivers: 45,
+    icon: icons.sun,
+    countDirections: directions[6].length
+  },
+  {
+    id: 7,
+    name: 'Гуманитарные и социальные науки',
+    countUnivers: 5,
+    icon: icons.girl,
+    countDirections: directions[7].length
+  },
+  {
+    id: 8,
+    name: 'Безопаность и военное дело',
+    countUnivers: 10,
+    icon: icons.fire,
+    countDirections: directions[8].length
+  }
+];

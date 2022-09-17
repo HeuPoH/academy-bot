@@ -1,16 +1,23 @@
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import React from 'react';
 import {
   FlatList,
   Image,
-  ScrollView,
+  ImageBackground,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
+import { row } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
+import { IconButton } from '~library/components/IconButton';
 import { Direction } from '~library/services/specialtiesReq';
-import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
+import {
+  ScreenNavAndRouteProps,
+  ScreenNavigationProp,
+  ScreensName
+} from '~library/StackNavigators';
 import type { DirectionsModel } from '~models/Directions';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
@@ -20,6 +27,34 @@ type Props = {
 } & ScreenNavigationProp<ScreensName.Directions>;
 
 export class Directions extends BaseView<Props> {
+  static navigationOptions = (): NativeStackNavigationOptions => {
+    return {
+      header: (p: ScreenNavAndRouteProps<ScreensName.Directions>) => {
+        return (
+          <ImageBackground
+            style={styles.headerCont}
+            source={icons.bgDirections}
+            // resizeMode='cover'
+          >
+            <IconButton
+              styleBtn={{ width: 100 }}
+              styleTxt={styles.btnBackText}
+              color='transparent'
+              title='Назад'
+              onPress={p.navigation.goBack}
+              src={icons.arrowLeft}
+            />
+            <Text style={styles.headerTitle}>СПЕЦИАЛЬНОСТИ</Text>
+            <View style={row}>
+              <Text>в сфере </Text>
+              <Text>{p.route.params?.name}</Text>
+            </View>
+          </ImageBackground>
+        );
+      }
+    };
+  };
+
   componentDidMount(): void {
     const { model, route } = this.props;
     model.fetch({ specId: route.params.id });
@@ -50,8 +85,8 @@ export class Directions extends BaseView<Props> {
       <View style={styles.container}>
         <FlatList
           data={directions}
-          keyExtractor={(item) => `${item.id}`}
-          renderItem={(item) => this.renderItem(item.item, item.index)}
+          keyExtractor={(item) => `directions-${item.id}`}
+          renderItem={({ item, index }) => this.renderItem(item, index)}
         />
       </View>
     );
@@ -63,6 +98,9 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     marginTop: 14
+  },
+  headerCont: {
+    backgroundColor: 'white'
   },
   item: {
     flexDirection: 'row',
@@ -80,5 +118,20 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     color: COLOR.GREY6,
     fontWeight: '400'
+  },
+  headerTitle: {
+    fontWeight: '600',
+    fontSize: 20,
+    lineHeight: 24,
+    letterSpacing: 0.38,
+    color: COLOR.BLACK,
+    paddingLeft: 18
+  },
+  btnBackText: {
+    fontWeight: '400',
+    fontSize: 17,
+    paddingBottom: 18,
+    paddingTop: 35,
+    lineHeight: 22
   }
 });

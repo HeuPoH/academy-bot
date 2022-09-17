@@ -4,7 +4,8 @@ import {
   StyleProp,
   StyleSheet,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  ViewStyle
 } from 'react-native';
 
 import { textAlignCenter } from '~library/base/baseStyles';
@@ -15,7 +16,7 @@ export type ButtonProps = {
   onPress: (event: GestureResponderEvent) => void;
   disabled?: boolean;
   color?: Color;
-  styleBtn?: StyleProp<any>;
+  styleBtn?: StyleProp<ViewStyle>;
   styleTxt?: StyleProp<any>;
   children?: any;
 };
