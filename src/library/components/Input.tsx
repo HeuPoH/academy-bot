@@ -12,12 +12,7 @@ import {
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 import { ErrorMessage } from './ErrorMessage';
-import {
-  row,
-  column,
-  flex1,
-  alignItemCenter
-} from '~library/base/baseStyles';
+import { row, column, flex1, alignItemCenter } from '~library/base/baseStyles';
 
 type Props = {
   title?: string;

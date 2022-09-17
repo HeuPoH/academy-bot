@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Circle, Svg } from 'react-native-svg';
+// import { Circle, Svg } from 'react-native-svg';
 
 import { BaseView } from '~library/base/BaseView';
 import { ScreenNavAndRouteProps, ScreensName } from '~library/StackNavigators';
@@ -29,11 +29,6 @@ export class Direction extends BaseView<Props> {
       <View style={styles.container}>
         <View>
           <Text style={styles.descBlock}>{direction?.description}</Text>
-        </View>
-        <View>
-          <Svg>
-            <Circle />
-          </Svg>
         </View>
       </View>
     );

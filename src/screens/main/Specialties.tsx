@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   Image,
@@ -11,12 +12,14 @@ import { Carousel } from '~library/components/Carousel';
 import { flex1, row } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Speciality } from '~library/services/specialtiesReq';
+import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
+import { Button } from '~library/components/Button';
 import { SpecialtiesModel } from '~models/Specialties';
 import { COLOR } from '~res/colors';
 
-type Props = {
+interface Props extends ScreenNavigationProp<ScreensName.Main> {
   model: SpecialtiesModel;
-};
+}
 
 export class Specialties extends BaseView<Props> {
   private bgColors = [
@@ -32,6 +35,11 @@ export class Specialties extends BaseView<Props> {
     COLOR.RED3
   ];
 
+  componentDidMount() {
+    this.props.model.fetch();
+    super.componentDidMount();
+  }
+
   private getSpecialties() {
     return this.props.model.getSpecialties().map((spec, i) => ({
       ...spec,
@@ -44,28 +52,29 @@ export class Specialties extends BaseView<Props> {
     }));
   }
 
-  private renderItem(item: Speciality) {
-    const { icon, name, countUnivers } = item;
+  private onNavigateTo(id: number, name: string) {
+    this.props.navigation.navigate(ScreensName.Directions, { id, name });
+  }
+
+  private renderItem = (item: Speciality) => {
+    const { icon, name, countUnivers, countDirections, id } = item;
 
     return (
-      <View style={row}>
+      <Button color='transparent' styleBtn={row} onPress={() => this.onNavigateTo(id, name)}>
         {icon}
         <View style={flex1}>
           <Text style={styles.title}>{name}</Text>
-          <Text style={styles.greyText}>
-            {countUnivers} <Text style={styles.orangeText}>вузов</Text>
-          </Text>
+          <View style={styles.item}>
+            <Text>{countUnivers} <Text style={styles.orangeText}>вузов</Text></Text>
+            <Text>{countDirections} <Text style={styles.orangeText}>специальностей</Text></Text>
+          </View>
         </View>
-      </View>
+      </Button>
     );
-  }
+  };
 
   private getHeader() {
     return <Text style={styles.contTitle}>Специальности</Text>;
-  }
-
-  componentDidMount(): void {
-    this.props.model.fetch();
   }
 
   render() {
@@ -101,10 +110,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12
   },
-  greyText: {
+  item: {
     fontWeight: '700',
     fontSize: 14,
-    color: COLOR.GREY6
+    color: COLOR.GREY6,
+    flexDirection: 'column'
   },
   orangeText: {
     fontWeight: '400',

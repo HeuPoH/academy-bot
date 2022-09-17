@@ -13,6 +13,7 @@ export function IconButton(props: ButtonIconProps) {
   return (
     <Button styleBtn={{ ...btnStyles.withIcon, ...styleBtn }} {...args}>
       <Image style={styles.image} source={src} />
+      {props.children}
     </Button>
   );
 }

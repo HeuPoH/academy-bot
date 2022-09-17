@@ -1,3 +1,4 @@
+import { ImageSourcePropType } from 'react-native';
 import { icons } from '~res/images/icons';
 
 export class SpecialtiesReq {
@@ -14,63 +15,73 @@ export type Speciality = {
   id: number;
   name: string;
   countUnivers: number;
-  icon: string | JSX.Element;
+  icon: ImageSourcePropType | JSX.Element;
+  countDirections: number;
 };
 
 const specialties: Speciality[] = [
   {
     id: 0,
     name: 'Управление и экономика',
-    countUnivers: 0,
-    icon: icons.dollar
+    countUnivers: 324,
+    icon: icons.dollar,
+    countDirections: 100
   },
   {
     id: 1,
     name: 'Техника и технологии',
-    countUnivers: 0,
-    icon: icons.rocket
+    countUnivers: 78,
+    icon: icons.rocket,
+    countDirections: 100
   },
   {
     id: 2,
     name: 'Информационные технологии',
-    countUnivers: 0,
-    icon: icons.computer
+    countUnivers: 90,
+    icon: icons.computer,
+    countDirections: 100
   },
   {
     id: 3,
     name: 'Точные и естественные науки',
-    countUnivers: 0,
-    icon: icons.cube
+    countUnivers: 23,
+    icon: icons.cube,
+    countDirections: 100
   },
   {
     id: 4,
     name: 'Медиа, дизайн и архитектура',
-    countUnivers: 0,
-    icon: icons.image
+    countUnivers: 40,
+    icon: icons.image,
+    countDirections: 100
   },
   {
     id: 5,
     name: 'Искусство и творчество',
-    countUnivers: 0,
-    icon: icons.paint
+    countUnivers: 123,
+    icon: icons.paint,
+    countDirections: 100
   },
   {
     id: 6,
     name: 'Медицина и здравохранение',
-    countUnivers: 0,
-    icon: icons.sun
+    countUnivers: 45,
+    icon: icons.sun,
+    countDirections: 100
   },
   {
     id: 7,
     name: 'Гуманитарные и социальные науки',
-    countUnivers: 0,
-    icon: icons.girl
+    countUnivers: 5,
+    icon: icons.girl,
+    countDirections: 100
   },
   {
     id: 8,
     name: 'Безопаность и военное дело',
-    countUnivers: 0,
-    icon: icons.fire
+    countUnivers: 10,
+    icon: icons.fire,
+    countDirections: 100
   }
 ];
 

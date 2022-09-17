@@ -1,16 +1,23 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 import { BaseView } from '~library/base/BaseView';
 import { Direction } from '~library/services/specialtiesReq';
-import { ScreenNavAndRouteProps, ScreensName } from '~library/StackNavigators';
+import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import type { DirectionsModel } from '~models/Directions';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
 type Props = {
   model: DirectionsModel;
-} & ScreenNavAndRouteProps<ScreensName.Directions>;
+} & ScreenNavigationProp<ScreensName.Directions>;
 
 export class Directions extends BaseView<Props> {
   componentDidMount(): void {

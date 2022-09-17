@@ -1,124 +1,62 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-import React, { type PropsWithChildren } from 'react';
+import { Header } from '~screens/Header';
+import { Directions as DirectionsScreen } from '~screens/Directions';
+import { Direction as DirectionScreen } from '~screens/Direction';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View
-} from 'react-native';
+  RootStack,
+  ScreenNavAndRouteProps,
+  ScreensName
+} from '~library/StackNavigators';
+import { row } from '~library/base/baseStyles';
+import { Models } from '~models/Models';
+import { COLOR } from '~res/colors';
+import { Main } from '~screens/main';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({ children, title }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black
-          }
-        ]}
-      >
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark
-          }
-        ]}
-      >
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior='automatic'
-        style={backgroundStyle}
-      >
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white
-          }}
-        >
-          <Section title='Step One'>
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title='See Your Changes'>
-            <ReloadInstructions />
-          </Section>
-          <Section title='Debug'>
-            <DebugInstructions />
-          </Section>
-          <Section title='Learn More'>
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <View style={styles.rootContainer}>
+          <Header />
+          <RootStack.Navigator initialRouteName={ScreensName.Main}>
+            <RootStack.Screen name={ScreensName.Main} component={Main} />
+            <RootStack.Screen
+              name={ScreensName.Directions}
+              initialParams={{ id: 1, name: 'УПРАВЛЕНИЯ и ЭКОНОМИКИ' }}
+              options={{
+                header: (p: ScreenNavAndRouteProps<ScreensName.Directions>) => (
+                  <View>
+                    <Text style={{ color: COLOR.BLACK }}>СПЕЦИАЛЬНОСТИ</Text>
+                    <View style={row}>
+                      <Text>в сфере </Text>
+                      <Text>{p.route.params?.name}</Text>
+                    </View>
+                  </View>
+                )
+              }}
+            >
+              {(p) => <DirectionsScreen model={Models.DirectionsModel()} {...p} />}
+            </RootStack.Screen>
+            <RootStack.Screen
+              name={ScreensName.Direction}
+              initialParams={{ dirId: 1 }}
+            >
+              {(p) => <DirectionScreen model={Models.DirectionsModel()} {...p} />}
+            </RootStack.Screen>
+          </RootStack.Navigator>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+      </NavigationContainer>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600'
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400'
-  },
-  highlight: {
-    fontWeight: '700'
+  rootContainer: {
+    backgroundColor: COLOR.ORANGE2,
+    flex: 1
   }
 });
-
-export default App;

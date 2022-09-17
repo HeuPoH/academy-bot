@@ -1,33 +1,33 @@
 import {
-  createStackNavigator,
-  StackNavigationProp
-} from '@react-navigation/stack';
+  createNativeStackNavigator,
+  NativeStackScreenProps
+} from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 
 export enum ScreensName {
+  Main = 'Main',
   Directions = 'Directions',
   Direction = 'Direction'
 }
 
 export type RootStackParams = {
+  [ScreensName.Main]: undefined;
   [ScreensName.Directions]: { id: number; name: string };
   [ScreensName.Direction]: { dirId: number };
 };
 
-export type ScreenNavAndRouteProps<T extends keyof RootStackParams> = {
-  route: ScreenRouteProp<T>;
-  navigation: ScreenNavigationProp<T>;
-};
+export type ScreenNavAndRouteProps<T extends keyof RootStackParams> =
+  ScreenRouteProp<T> & ScreenNavigationProp<T>;
 
-type ScreenNavigationProp<T extends keyof RootStackParams> =
-  StackNavigationProp<RootStackParams, T>;
+export type ScreenNavigationProp<T extends keyof RootStackParams> =
+  NativeStackScreenProps<RootStackParams, T>;
 
-type ScreenRouteProp<T extends keyof RootStackParams> = RouteProp<
+export type ScreenRouteProp<T extends keyof RootStackParams> = RouteProp<
   RootStackParams,
   T
 >;
 
-export const RootStack = createStackNavigator<RootStackParams>();
+export const RootStack = createNativeStackNavigator<RootStackParams>();
 
 // type RouteArgs = {
 //   name: ScreensName;

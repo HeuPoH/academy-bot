@@ -1,18 +1,21 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
+import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { Specialties } from './Specialties';
 
-export class Main extends React.Component {
+export class Main extends React.Component<
+  ScreenNavigationProp<ScreensName.Main>
+> {
   private specModel = Models.SpecialtiesModel();
 
   render() {
     return (
       <View style={style.bgContainer}>
         <ScrollView style={style.container}>
-          <Specialties model={this.specModel} />
+          <Specialties model={this.specModel} {...this.props} />
         </ScrollView>
       </View>
     );

@@ -11,7 +11,7 @@ import { textAlignCenter } from '~library/base/baseStyles';
 import { COLOR } from '~res/colors';
 
 export type ButtonProps = {
-  title: string;
+  title?: string | JSX.Element;
   onPress: (event: GestureResponderEvent) => void;
   disabled?: boolean;
   color?: Color;
