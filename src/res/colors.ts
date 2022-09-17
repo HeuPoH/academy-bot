@@ -1,0 +1,30 @@
+// Colors
+export const COLOR = {
+  PINKY: '#FFE9DD',
+  PINKY2: '#FAEBEB',
+  PINKY3: '#FFF4EE',
+  PINKY4: 'rgba(224, 86, 253, 0.8)',
+  PINKY5: 'rgba(190, 46, 221, 0.8)',
+  GREY: '#BAC0CA',
+  GREY2: '#66708080',
+  GREY3: '#EEF1F4',
+  GREY4: '#818C99',
+  GREY5: '#667080',
+  GREY6: '#645E5E',
+  GREY7: 'rgba(255, 255, 255, 0.7)',
+  BLACK: '#000000',
+  ORANGE: '#FF6737',
+  ORANGE2:
+    'linear-gradient(179.94deg, rgba(255, 103, 55, 0.8) 22.34%, rgba(249, 168, 38, 0.8) 334.3%)',
+  ORANGE3: 'rgba(249, 202, 36, 0.8)',
+  RED: '#E64646',
+  RED2: 'rgba(255, 103, 55, 0.8)',
+  RED3: 'rgba(235, 77, 75, 0.8)',
+  WHITE: '#FFFFFF',
+  WHITE2: '#F2F3F5',
+  WHITE3: 'rgba(235, 246, 250, 0.8)',
+  BLUE: '#3F8AE0',
+  BLUE2: 'rgba(126, 214, 223, 0.8)',
+  BLUE3: 'rgba(34, 166, 179, 0.8)',
+  GREEN: 'rgba(106, 176, 76, 0.8)'
+};
