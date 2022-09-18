@@ -11,6 +11,11 @@ export class SpecialtiesReq {
   }
 }
 
+export type Condition = {
+  title: string[];
+  count: number;
+};
+
 export type Direction = {
   id: number;
   name: string;
@@ -19,6 +24,7 @@ export type Direction = {
   countUnivers: number;
   passingScore: number;
   budgetPlaces: number;
+  conds: Condition[];
 };
 
 const directions: { [speciality: number]: Direction[] } = {
@@ -31,7 +37,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -41,7 +52,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -51,7 +67,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -61,7 +82,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -71,7 +97,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 5,
@@ -81,7 +112,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 6,
@@ -91,7 +127,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 7,
@@ -101,7 +142,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 8,
@@ -111,7 +157,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 9,
@@ -121,7 +172,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   1: [
@@ -133,7 +189,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -143,7 +204,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -153,7 +219,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -163,7 +234,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -173,7 +249,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 5,
@@ -183,7 +264,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 6,
@@ -193,7 +279,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   2: [
@@ -205,7 +296,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -215,7 +311,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -225,7 +326,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -235,7 +341,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -245,7 +356,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 5,
@@ -255,7 +371,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 6,
@@ -265,7 +386,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   3: [
@@ -277,7 +403,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -287,7 +418,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -297,7 +433,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -307,7 +448,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -317,7 +463,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 5,
@@ -327,7 +478,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 6,
@@ -337,7 +493,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   4: [
@@ -349,7 +510,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -359,7 +525,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -369,7 +540,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -379,7 +555,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -389,7 +570,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 5,
@@ -399,7 +585,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 6,
@@ -409,7 +600,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   5: [
@@ -421,7 +617,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -431,7 +632,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -441,7 +647,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -451,7 +662,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -461,7 +677,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   6: [
@@ -473,7 +694,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -483,7 +709,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -493,7 +724,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -503,7 +739,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -513,7 +754,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   7: [
@@ -525,7 +771,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -535,7 +786,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -545,7 +801,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -555,7 +816,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -565,7 +831,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ],
   8: [
@@ -577,7 +848,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 1,
@@ -587,7 +863,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 2,
@@ -597,7 +878,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 3,
@@ -607,7 +893,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     },
     {
       id: 4,
@@ -617,7 +908,12 @@ const directions: { [speciality: number]: Direction[] } = {
       countUnivers: 0,
       passingScore: 1000,
       budgetPlaces: 100,
-      code: 'Бакалавриат, код направления 43.03.03'
+      code: 'Бакалавриат, код направления 43.03.03',
+      conds: [
+        { title: ['Русский язык', 'Английский язык', 'Физика'], count: 20 },
+        { title: ['Русский язык', 'Французский язык', 'Химия'], count: 23 },
+        { title: ['Немецкий язык', 'Французский язык', 'Химия'], count: 113 }
+      ]
     }
   ]
 };

@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { Header } from '~screens/Header';
+import { Main } from '~screens/main';
 import { Directions as DirectionsScreen } from '~screens/Directions';
 import { Direction as DirectionScreen } from '~screens/Direction';
 import {
@@ -12,7 +13,6 @@ import {
 } from '~library/StackNavigators';
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
-import { Main } from '~screens/main';
 
 export default class App extends React.Component {
   render() {

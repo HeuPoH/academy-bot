@@ -8,12 +8,12 @@ import {
   View
 } from 'react-native';
 
-import { Carousel } from '~library/components/Carousel';
+import { Carousel } from '~library/react-controls/Carousel';
 import { flex1, row } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Speciality } from '~library/services/specialtiesReq';
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
-import { Button } from '~library/components/Button';
+import { Button } from '~library/react-controls/Button';
 import { SpecialtiesModel } from '~models/Specialties';
 import { COLOR } from '~res/colors';
 

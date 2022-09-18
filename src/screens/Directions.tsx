@@ -11,8 +11,8 @@ import {
 
 import { row, textDecorationLine, upperCase } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
-import { Button } from '~library/components/Button';
-import { ButtonToBack } from '~library/components/ButtonToBack';
+import { Button } from '~library/react-controls/Button';
+import { ButtonToBack } from '~library/react-controls/ButtonToBack';
 import { Direction } from '~library/services/specialtiesReq';
 import {
   ScreenNavAndRouteProps,
@@ -36,7 +36,7 @@ export class Directions extends BaseView<Props> {
             style={styles.headerCont}
             source={icons.bgDirections}
           >
-            <ButtonToBack styles={{ paddingBottom: 37 }} goBack={p.navigation.goBack} />
+            <ButtonToBack styles={styles.headerBtnGoBack} goBack={p.navigation.goBack} />
             <Text style={styles.headerTitle}>СПЕЦИАЛЬНОСТИ</Text>
             <View style={{ ...styles.headerSubTitle, ...row }}>
               <Text>в сфере </Text>
@@ -126,14 +126,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingTop: 25
   },
-  headerBtnBack: {
-    width: 100,
+  headerBtnGoBack: {
     paddingBottom: 37
-  },
-  headerBtnBackText: {
-    fontWeight: '400',
-    fontSize: 17,
-    lineHeight: 22
   },
   headerTitle: {
     paddingLeft: 16,

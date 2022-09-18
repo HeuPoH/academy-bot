@@ -1,9 +1,16 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-// import { Circle, Svg } from 'react-native-svg';
+import {
+  ImageBackground,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 import { BaseView } from '~library/base/BaseView';
-import { ButtonToBack } from '~library/components/ButtonToBack';
+import { Button } from '~library/react-controls/Button';
+import { ButtonToBack } from '~library/react-controls/ButtonToBack';
 import {
   ScreenNavAndRouteProps,
   ScreenNavigationProp,
@@ -18,7 +25,11 @@ interface Props extends ScreenNavigationProp<ScreensName.Direction> {
   model: DirectionsModel;
 }
 
-export class Direction extends BaseView<Props> {
+interface State {
+  showModal: boolean;
+}
+
+export class Direction extends BaseView<Props, State> {
   static navigationOptions = (): any => {
     return {
       header: (p: ScreenNavAndRouteProps<ScreensName.Direction>) => {
@@ -26,7 +37,7 @@ export class Direction extends BaseView<Props> {
         return (
           <ImageBackground style={styles.headerCont} source={icons.bgDirection}>
             <ButtonToBack
-              styles={{ paddingBottom: 86 }}
+              styles={styles.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
             <Text style={styles.headerTitle}>{dir?.name}</Text>
@@ -37,9 +48,37 @@ export class Direction extends BaseView<Props> {
     };
   };
 
-  componentDidMount() {
-    this.props.model.fetch({ specId: 1 });
-    super.componentDidMount();
+  constructor(p: Props) {
+    super(p);
+    this.state = { showModal: false };
+  }
+
+  private renderModal() {
+    const conditions = this.props.model
+      .getConditions(this.props.route.params.dirId)
+      .map((cond, i) => {
+        return (
+          <View style={styles.modalConds} key={i}>
+            <View>
+              {cond.title.map((t, j) => (
+                <Text key={j}>{t}</Text>
+              ))}
+            </View>
+            <Text>{cond.count}</Text>
+          </View>
+        );
+      });
+
+    return (
+      <Modal
+        // transparent={true}
+        animationType='slide'
+        onRequestClose={() => this.setState({ showModal: false })}
+        visible={this.state.showModal}
+      >
+        <View style={styles.modalCont}>{conditions}</View>
+      </Modal>
+    );
   }
 
   render() {
@@ -51,23 +90,39 @@ export class Direction extends BaseView<Props> {
     }
 
     return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.descBlock}>{direction?.description}</Text>
-        </View>
-      </View>
+      <ScrollView style={styles.container}>
+        {this.renderModal()}
+        <Text style={styles.descBlock}>{direction?.description}</Text>
+        <Button
+          styleBtn={{
+            ...styles.condBtn,
+            borderLeftColor: this.props.model.getColor(7)
+          }}
+          styleTxt={styles.condBtnTitle}
+          title='С каким ЕГЭ можно поступить'
+          onPress={() => this.setState({ showModal: true })}
+        />
+        <Button
+          styleBtn={{
+            ...styles.condBtn,
+            borderLeftColor: this.props.model.getColor(3)
+          }}
+          styleTxt={styles.condBtnTitle}
+          title='Вузы по специальности'
+          onPress={() => {}}
+        />
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
-    paddingTop: 30
+    paddingHorizontal: 16
   },
   headerCont: {
     backgroundColor: COLOR.WHITE,
-    paddingTop: 10
+    paddingTop: 25
   },
   headerTitle: {
     fontWeight: '600',
@@ -75,6 +130,9 @@ const styles = StyleSheet.create({
     color: COLOR.BLACK,
     textTransform: 'uppercase',
     paddingLeft: 16
+  },
+  headerBtnGoBack: {
+    paddingBottom: 86
   },
   headerSubTitle: {
     fontWeight: '500',
@@ -90,6 +148,33 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 21,
     marginBottom: 30,
-    textAlign: 'justify'
+    textAlign: 'justify',
+    paddingTop: 30
+  },
+  condBtn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 16,
+    borderLeftWidth: 10,
+    paddingLeft: 12,
+    paddingRight: 12,
+    backgroundColor: COLOR.WHITE,
+    marginVertical: 6,
+    borderRadius: 10
+  },
+  condBtnTitle: {
+    fontSize: 17,
+    textTransform: 'uppercase',
+    color: COLOR.GREY6,
+    fontWeight: '400'
+  },
+  modalCont: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalConds: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
   }
 });

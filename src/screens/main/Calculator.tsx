@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-import { Tiles } from '~library/components/Tiles';
+import { Tiles } from '~library/react-controls/Tiles';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
-import { Button } from '~library/components/Button';
+import { Button } from '~library/react-controls/Button';
 
 type Item = {
   id: number;

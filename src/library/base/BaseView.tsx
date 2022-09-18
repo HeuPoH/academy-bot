@@ -6,7 +6,7 @@ interface Props {
   model: Observable;
 }
 
-export class BaseView<P extends Props = Props> extends React.Component<P> implements IObservableClass {
+export class BaseView<P extends Props = Props, S = {}> extends React.Component<P, S> implements IObservableClass {
   componentDidMount() {
     this.props.model.register(this);
   }

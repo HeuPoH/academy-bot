@@ -53,4 +53,8 @@ export class DirectionsModel extends Observable implements IDirectionsModel {
 
     return this.colors[id];
   }
+
+  getConditions(id: number) {
+    return this.getDirection(id)?.conds || [];
+  }
 }

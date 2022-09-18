@@ -5,8 +5,8 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 import { flex1 } from '~library/base/baseStyles';
-import { Carousel } from '~library/components/Carousel';
-import { Button } from '~library/components/Button';
+import { Carousel } from '~library/react-controls/Carousel';
+import { Button } from '~library/react-controls/Button';
 
 type University = {
   name: string;

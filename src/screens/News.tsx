@@ -2,8 +2,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-import { Button } from '~library/components/Button';
-import { Carousel } from '~library/components/Carousel';
+import { Button } from '~library/react-controls/Button';
+import { Carousel } from '~library/react-controls/Carousel';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
