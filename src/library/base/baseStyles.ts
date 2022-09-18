@@ -12,6 +12,10 @@ export const flex1: TextStyle = {
   flex: 1
 };
 
+export const textVetCenter: TextStyle = {
+  textAlignVertical: 'center'
+};
+
 export const alignItemCenter: {
   alignSelf: 'auto' | FlexAlignType | undefined;
 } = {

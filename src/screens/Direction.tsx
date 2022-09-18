@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   ImageBackground,
-  Modal,
   ScrollView,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import Modal from 'react-native-modal';
 
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
@@ -53,6 +53,10 @@ export class Direction extends BaseView<Props, State> {
     this.state = { showModal: false };
   }
 
+  private onCloseModel = () => {
+    this.setState({ showModal: false });
+  };
+
   private renderModal() {
     const conditions = this.props.model
       .getConditions(this.props.route.params.dirId)
@@ -61,20 +65,27 @@ export class Direction extends BaseView<Props, State> {
           <View style={styles.modalConds} key={i}>
             <View>
               {cond.title.map((t, j) => (
-                <Text key={j}>{t}</Text>
+                <Text
+                  style={{ ...styles.modalCondsText, marginRight: 32 }}
+                  key={j}
+                >
+                  {t}
+                </Text>
               ))}
             </View>
-            <Text>{cond.count}</Text>
+            <View>
+              <Text style={styles.modalCondsText}>{cond.count}</Text>
+            </View>
           </View>
         );
       });
 
     return (
       <Modal
-        // transparent={true}
-        animationType='slide'
-        onRequestClose={() => this.setState({ showModal: false })}
-        visible={this.state.showModal}
+        onBackButtonPress={this.onCloseModel}
+        isVisible={this.state.showModal}
+        animationIn='slideInRight'
+        animationOut='slideOutRight'
       >
         <View style={styles.modalCont}>{conditions}</View>
       </Modal>
@@ -169,12 +180,19 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   modalCont: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: COLOR.WHITE,
+    paddingVertical: 22,
+    paddingHorizontal: 38,
+    borderRadius: 20
   },
   modalConds: {
     flexDirection: 'row',
-    justifyContent: 'flex-start'
+    lineHeight: 22,
+    paddingVertical: 12
+  },
+  modalCondsText: {
+    fontWeight: '500',
+    fontSize: 17,
+    color: COLOR.BLACK
   }
 });
