@@ -1,5 +1,5 @@
 import { Observable } from '~library/base/Observable';
-import { Direction, SpecialtiesReq } from '~library/services/specialtiesReq';
+import { Direction, SpecialtiesReq } from '~library/services/SpecialtiesReq';
 import { IBaseModel } from './Models';
 
 interface IDirectionsModel extends IBaseModel {

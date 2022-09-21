@@ -11,7 +11,7 @@ import {
 import { Carousel } from '~library/react-controls/Carousel';
 import { flex1, row } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
-import { Speciality } from '~library/services/specialtiesReq';
+import { Speciality } from '~library/services/SpecialtiesReq';
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Button } from '~library/react-controls/Button';
 import { SpecialtiesModel } from '~models/Specialties';

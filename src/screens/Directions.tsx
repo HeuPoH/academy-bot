@@ -13,7 +13,7 @@ import { row, textDecorationLine, upperCase } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
-import { Direction } from '~library/services/specialtiesReq';
+import { Direction } from '~library/services/SpecialtiesReq';
 import {
   ScreenNavAndRouteProps,
   ScreenNavigationProp,
