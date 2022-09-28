@@ -7,6 +7,7 @@ import { Header } from '~screens/Header';
 import { Main } from '~screens/main';
 import { Directions as DirectionsScreen } from '~screens/Directions';
 import { Direction as DirectionScreen } from '~screens/Direction';
+import { Universities as UniversitiesScreen } from '~screens/Universities';
 import {
   RootStack,
   ScreensName
@@ -34,6 +35,12 @@ export default class App extends React.Component {
               options={DirectionScreen.navigationOptions}
             >
               {(p) => <DirectionScreen model={Models.DirectionsModel()} {...p} />}
+            </RootStack.Screen>
+            <RootStack.Screen
+              name={ScreensName.Universities}
+              options={UniversitiesScreen.navigationOptions}
+            >
+              {(p) => <UniversitiesScreen model={Models.UniversitiesModel()} {...p} />}
             </RootStack.Screen>
           </RootStack.Navigator>
         </View>

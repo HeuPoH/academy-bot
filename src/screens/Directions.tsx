@@ -122,27 +122,26 @@ const styles = StyleSheet.create({
     color: COLOR.GREY6,
     fontWeight: '400'
   },
-  headerCont: {
-    backgroundColor: 'white',
-    paddingTop: 25
-  },
   headerBtnGoBack: {
     paddingBottom: 37
   },
+  headerCont: {
+    backgroundColor: COLOR.WHITE,
+    paddingTop: 25
+  },
   headerTitle: {
-    paddingLeft: 16,
     fontWeight: '600',
     fontSize: 20,
-    lineHeight: 24,
-    letterSpacing: 0.38,
     color: COLOR.BLACK,
-    paddingBottom: 23,
-    alignItems: 'center'
+    textTransform: 'uppercase',
+    paddingLeft: 16
   },
   headerSubTitle: {
-    paddingLeft: 16,
     fontWeight: '500',
     fontSize: 14,
-    paddingBottom: 30
-  }
+    color: COLOR.BLACK,
+    marginVertical: 10,
+    marginHorizontal: 16,
+    textTransform: 'uppercase'
+  },
 });

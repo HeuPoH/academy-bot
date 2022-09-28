@@ -65,10 +65,7 @@ export class Direction extends BaseView<Props, State> {
           <View style={styles.modalConds} key={i}>
             <View>
               {cond.title.map((t, j) => (
-                <Text
-                  style={{ ...styles.modalCondsText, marginRight: 32 }}
-                  key={j}
-                >
+                <Text style={styles.modalCondsText} key={j}>
                   {t}
                 </Text>
               ))}
@@ -92,10 +89,15 @@ export class Direction extends BaseView<Props, State> {
     );
   }
 
+  private onNavigateTo(name: string) {
+    this.props.navigation.navigate(ScreensName.Universities, {
+      direction: name
+    });
+  }
+
   render() {
     const id = this.props.route.params.dirId;
     const direction = this.props.model.getDirection(id);
-
     if (!direction) {
       return <Text>Направление не найдено</Text>;
     }
@@ -120,7 +122,7 @@ export class Direction extends BaseView<Props, State> {
           }}
           styleTxt={styles.condBtnTitle}
           title='Вузы по специальности'
-          onPress={() => {}}
+          onPress={() => this.onNavigateTo(direction.name)}
         />
       </ScrollView>
     );
@@ -135,15 +137,15 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.WHITE,
     paddingTop: 25
   },
+  headerBtnGoBack: {
+    paddingBottom: 86
+  },
   headerTitle: {
     fontWeight: '600',
     fontSize: 20,
     color: COLOR.BLACK,
     textTransform: 'uppercase',
     paddingLeft: 16
-  },
-  headerBtnGoBack: {
-    paddingBottom: 86
   },
   headerSubTitle: {
     fontWeight: '500',
@@ -188,7 +190,8 @@ const styles = StyleSheet.create({
   modalConds: {
     flexDirection: 'row',
     lineHeight: 22,
-    paddingVertical: 12
+    paddingVertical: 12,
+    marginRight: 32
   },
   modalCondsText: {
     fontWeight: '500',

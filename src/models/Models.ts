@@ -1,8 +1,10 @@
 import { DirectionsModel } from './Directions';
 import { SpecialtiesModel } from './Specialties';
+import { UniversitiesModel } from './Universities';
 
 let specialtiesModel: SpecialtiesModel;
 let directionsModel: DirectionsModel;
+let universitiesModel: UniversitiesModel;
 
 export interface IBaseModel {
   fetch(data?: any): Promise<void>;
@@ -23,5 +25,13 @@ export class Models {
     }
 
     return directionsModel;
+  }
+
+  static UniversitiesModel() {
+    if (!universitiesModel) {
+      universitiesModel = new UniversitiesModel();
+    }
+
+    return universitiesModel;
   }
 }

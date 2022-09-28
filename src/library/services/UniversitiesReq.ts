@@ -1,6 +1,6 @@
 export class UniversitiesReq {
   static getUniversities(direction: string) {
-    return Promise.resolve(univers[direction]);
+    return Promise.resolve(univers[direction] || []);
   }
 }
 

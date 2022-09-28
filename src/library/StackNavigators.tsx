@@ -7,13 +7,15 @@ import { RouteProp } from '@react-navigation/native';
 export enum ScreensName {
   Main = 'Main',
   Directions = 'Directions',
-  Direction = 'Direction'
+  Direction = 'Direction',
+  Universities = 'Universities'
 }
 
 export type RootStackParams = {
   [ScreensName.Main]: undefined;
   [ScreensName.Directions]: { id: number; title: string };
   [ScreensName.Direction]: { dirId: number };
+  [ScreensName.Universities]: { direction: string };
 };
 
 export type ScreenNavAndRouteProps<T extends keyof RootStackParams> =

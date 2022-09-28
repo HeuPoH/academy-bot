@@ -8,6 +8,7 @@ export class UniversitiesModel extends Observable {
   async fetch(direction: string) {
     const univers = await this.req.getUniversities(direction);
     this.universities = univers;
+    this.notifyObservers();
   }
 
   getUniversities(): University[] {
