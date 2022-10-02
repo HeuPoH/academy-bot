@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import { row, textDecorationLine } from '~library/base/baseStyles';
+import { fonts } from '~res/assets/fonts/fonts';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
@@ -29,12 +30,14 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: '600',
     fontSize: 20,
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    fontFamily: fonts.SF_ProDisplay_Black
   },
   subTitle: {
     color: COLOR.WHITE,
     marginTop: 8,
     fontSize: 20,
-    flex: 1
+    flex: 1,
+    fontFamily: fonts.SF_ProDisplay_Black
   }
 });

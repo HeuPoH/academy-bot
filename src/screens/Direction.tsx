@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import Modal from 'react-native-modal';
+import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
 
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
@@ -40,8 +41,14 @@ export class Direction extends BaseView<Props, State> {
               styles={styles.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
-            <Text style={styles.headerTitle}>{dir?.name}</Text>
-            <Text style={styles.headerSubTitle}>{dir?.code}</Text>
+            <Text style={{ ...styles.headerTitle, ...ffSF_ProDisplay_Black }}>
+              {dir?.name}
+            </Text>
+            <Text
+              style={{ ...styles.headerSubTitle, ...ffSF_ProDisplay_Black }}
+            >
+              {dir?.code}
+            </Text>
           </ImageBackground>
         );
       }
@@ -65,13 +72,20 @@ export class Direction extends BaseView<Props, State> {
           <View style={styles.modalConds} key={i}>
             <View>
               {cond.title.map((t, j) => (
-                <Text style={styles.modalCondsText} key={j}>
+                <Text
+                  style={{ ...styles.modalCondsText, ...ffSF_ProDisplay_Black }}
+                  key={j}
+                >
                   {t}
                 </Text>
               ))}
             </View>
             <View>
-              <Text style={styles.modalCondsText}>{cond.count}</Text>
+              <Text
+                style={{ ...styles.modalCondsText, ...ffSF_ProDisplay_Black }}
+              >
+                {cond.count}
+              </Text>
             </View>
           </View>
         );
@@ -99,28 +113,28 @@ export class Direction extends BaseView<Props, State> {
     const id = this.props.route.params.dirId;
     const direction = this.props.model.getDirection(id);
     if (!direction) {
-      return <Text>Направление не найдено</Text>;
+      return <Text style={ffSF_ProDisplay_Black}>Направление не найдено</Text>;
     }
 
     return (
       <ScrollView style={styles.container}>
         {this.renderModal()}
-        <Text style={styles.descBlock}>{direction?.description}</Text>
+        <Text style={styles.descBlock}>{direction.description}</Text>
         <Button
           styleBtn={{
             ...styles.condBtn,
-            borderLeftColor: this.props.model.getColor(7)
+            borderLeftColor: COLOR.GREEN2
           }}
-          styleTxt={styles.condBtnTitle}
+          styleTxt={{ ...styles.condBtnTitle, ...ffSF_ProDisplay_Black }}
           title='С каким ЕГЭ можно поступить'
           onPress={() => this.setState({ showModal: true })}
         />
         <Button
           styleBtn={{
             ...styles.condBtn,
-            borderLeftColor: this.props.model.getColor(3)
+            borderLeftColor: COLOR.ORANGE4
           }}
-          styleTxt={styles.condBtnTitle}
+          styleTxt={{ ...styles.condBtnTitle, ...ffSF_ProDisplay_Black }}
           title='Вузы по специальности'
           onPress={() => this.onNavigateTo(direction.name)}
         />

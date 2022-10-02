@@ -17,6 +17,7 @@ export const COLOR = {
   ORANGE2:
     'linear-gradient(179.94deg, rgba(255, 103, 55, 0.8) 22.34%, rgba(249, 168, 38, 0.8) 334.3%)',
   ORANGE3: 'rgba(249, 202, 36, 0.8)',
+  ORANGE4: '#F0932B',
   RED: '#E64646',
   RED2: 'rgba(255, 103, 55, 0.8)',
   RED3: 'rgba(235, 77, 75, 0.8)',
@@ -27,5 +28,6 @@ export const COLOR = {
   BLUE: '#3F8AE0',
   BLUE2: 'rgba(126, 214, 223, 0.8)',
   BLUE3: 'rgba(34, 166, 179, 0.8)',
-  GREEN: 'rgba(106, 176, 76, 0.8)'
+  GREEN: 'rgba(106, 176, 76, 0.8)',
+  GREEN2: '#6AB04C'
 };

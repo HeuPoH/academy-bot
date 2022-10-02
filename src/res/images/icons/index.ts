@@ -39,5 +39,7 @@ export const icons = {
   arrowRightSmall: require('../icons/arrow_right_small.png'),
   bgDirections: require('../bg-directions.png'),
   bgDirection: require('../bg-direction.png'),
-  coin: require('../coin.png')
+  bgUnversity: require('../bg-university.png'),
+  coin: require('../coin.png'),
+  vector: require('./vector.png')
 };

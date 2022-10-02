@@ -1,5 +1,7 @@
 import { FlexAlignType, TextStyle } from 'react-native';
 
+import { fonts } from '~res/assets/fonts/fonts';
+
 export const column = {
   flexDirection: 'column'
 };
@@ -36,4 +38,12 @@ export const textAlignCenter: TextStyle = {
 
 export const upperCase: TextStyle = {
   textTransform: 'uppercase'
+};
+
+export const justifyCenter: TextStyle = {
+  justifyContent: 'center'
+};
+
+export const ffSF_ProDisplay_Black: TextStyle = {
+  fontFamily: fonts.SF_ProDisplay_Black
 };

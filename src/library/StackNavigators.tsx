@@ -8,7 +8,8 @@ export enum ScreensName {
   Main = 'Main',
   Directions = 'Directions',
   Direction = 'Direction',
-  Universities = 'Universities'
+  Universities = 'Universities',
+  University = 'University'
 }
 
 export type RootStackParams = {
@@ -16,6 +17,7 @@ export type RootStackParams = {
   [ScreensName.Directions]: { id: number; title: string };
   [ScreensName.Direction]: { dirId: number };
   [ScreensName.Universities]: { direction: string };
+  [ScreensName.University]: { id: number };
 };
 
 export type ScreenNavAndRouteProps<T extends keyof RootStackParams> =

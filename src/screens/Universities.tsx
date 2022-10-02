@@ -16,10 +16,11 @@ import {
 } from '~library/StackNavigators';
 import { University } from '~library/services/UniversitiesReq';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
+import { Button } from '~library/react-controls/Button';
 import { UniversitiesModel } from '~models/Universities';
 import { icons } from '~res/images/icons';
 import { COLOR } from '~res/colors';
-import { Button } from '~library/react-controls/Button';
+import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
 
 interface Props extends ScreenNavigationProp<ScreensName.Universities> {
   model: UniversitiesModel;
@@ -35,8 +36,12 @@ export class Universities extends BaseView<Props> {
               styles={styles.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
-            <Text style={styles.headerTitle}>Вузы по специальности</Text>
-            <Text style={styles.headerSubTitle}>
+            <Text style={{ ...styles.headerTitle, ...ffSF_ProDisplay_Black }}>
+              Вузы по специальности
+            </Text>
+            <Text
+              style={{ ...styles.headerSubTitle, ...ffSF_ProDisplay_Black }}
+            >
               {p.route.params?.direction}
             </Text>
           </ImageBackground>
@@ -55,23 +60,22 @@ export class Universities extends BaseView<Props> {
     return (
       <Button onPress={() => this.onNavigateTo(item.id)} styleBtn={styles.item}>
         <Image source={icons.coin} />
-        <Text style={styles.itemTitle}>{item.name}</Text>
+        <Text style={{ ...styles.itemTitle, ...ffSF_ProDisplay_Black }}>
+          {item.name}
+        </Text>
         <Image source={icons.arrowRightSmall} />
       </Button>
     );
   }
 
   private onNavigateTo(id: number) {
-    console.log('====================================');
-    console.log(id);
-    console.log('====================================');
-    // this.props.navigation.navigate();
+    this.props.navigation.navigate(ScreensName.University, { id });
   }
 
   render() {
     const univers = this.props.model.getUniversities();
     if (!univers.length) {
-      return <Text>Университеты не найдены</Text>;
+      return <Text style={ffSF_ProDisplay_Black}>Университеты не найдены</Text>;
     }
 
     return (

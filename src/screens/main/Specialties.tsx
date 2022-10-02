@@ -9,13 +9,14 @@ import {
 } from 'react-native';
 
 import { Carousel } from '~library/react-controls/Carousel';
-import { flex1, row } from '~library/base/baseStyles';
+import { ffSF_ProDisplay_Black, flex1, row } from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Speciality } from '~library/services/SpecialtiesReq';
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Button } from '~library/react-controls/Button';
 import { SpecialtiesModel } from '~models/Specialties';
 import { COLOR } from '~res/colors';
+import { fonts } from '~res/assets/fonts/fonts';
 
 interface Props extends ScreenNavigationProp<ScreensName.Main> {
   model: SpecialtiesModel;
@@ -65,8 +66,8 @@ export class Specialties extends BaseView<Props> {
         <View style={flex1}>
           <Text style={styles.title}>{name}</Text>
           <View style={styles.item}>
-            <Text>{countUnivers} <Text style={styles.orangeText}>вузов</Text></Text>
-            <Text>{countDirections} <Text style={styles.orangeText}>специальностей</Text></Text>
+            <Text style={ffSF_ProDisplay_Black}>{countUnivers} <Text style={styles.orangeText}>вузов</Text></Text>
+            <Text style={ffSF_ProDisplay_Black}>{countDirections} <Text style={styles.orangeText}>специальностей</Text></Text>
           </View>
         </View>
       </Button>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     marginBottom: 46
   },
   title: {
+    fontFamily: fonts.SF_ProDisplay_Black,
     fontSize: 17,
     color: COLOR.BLACK,
     fontWeight: '500'
@@ -122,6 +124,7 @@ const styles = StyleSheet.create({
     color: COLOR.ORANGE
   },
   contTitle: {
+    fontFamily: fonts.SF_ProDisplay_Black,
     fontWeight: '800',
     fontSize: 24,
     lineHeight: 28,
