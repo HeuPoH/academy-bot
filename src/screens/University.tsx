@@ -20,9 +20,10 @@ import {
   ffSF_ProDisplay_Black,
   flex1
 } from '~library/base/baseStyles';
-import { UniversitiesModel } from '~models/Universities';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
+import { UniversitiesModel } from '~models/Universities';
+import { Models } from '~models/Models';
 import { styles as baseStyle } from './Directions';
 
 interface Props extends ScreenNavigationProp<ScreensName.University> {
@@ -33,12 +34,28 @@ export class University extends BaseView<Props> {
   static navigationOptions = (): any => {
     return {
       header: (p: ScreenNavAndRouteProps<ScreensName.University>) => {
+        const university = Models.UniversitiesModel().getUniversity(
+          p.route.params.id
+        )!;
+
         return (
           <ImageBackground style={style.headerCont} source={icons.bgUnversity}>
             <ButtonToBack
               styles={baseStyle.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
+            <View style={style.icons}>
+              <View style={style.points}>
+                <Text style={style.pointsParam}>{university.points}</Text>
+                <Text style={style.pointsStaticText}>ЕГЭ</Text>
+              </View>
+              {university.hasMilitary && (
+                <Image style={style.icon} source={icons.warfac} />
+              )}
+              {university.hasHostel && (
+                <Image style={style.icon} source={icons.domin} />
+              )}
+            </View>
           </ImageBackground>
         );
       }
@@ -73,7 +90,7 @@ export class University extends BaseView<Props> {
             <Text style={{ ...style.shortInfoParam, ...ffSF_ProDisplay_Black }}>
               {university.budgetPlaces}
             </Text>
-            <Text>бюджетных мест</Text>
+            <Text style={ffSF_ProDisplay_Black}>бюджетных мест</Text>
           </View>
           <View style={{ ...flex1, ...alignItemsCenter }}>
             <Text style={{ ...style.shortInfoParam, ...ffSF_ProDisplay_Black }}>
@@ -100,15 +117,52 @@ export class University extends BaseView<Props> {
 const style = StyleSheet.create({
   headerCont: {
     paddingTop: 25,
-    paddingBottom: 165
+    paddingBottom: 165,
+    marginBottom: 40
+  },
+  points: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 75 / 2,
+    borderWidth: 2,
+    width: 75,
+    height: 75,
+    backgroundColor: COLOR.WHITE
+  },
+  pointsParam: {
+    fontSize: 20,
+    color: COLOR.BLACK
+  },
+  pointsStaticText: {
+    fontWeight: '400',
+    fontSize: 11,
+    color: COLOR.GREY6
+  },
+  icons: {
+    marginLeft: 16,
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    bottom: -75 / 2
+  },
+  icon: {
+    backgroundColor: COLOR.WHITE,
+    borderColor: COLOR.BLACK,
+    borderWidth: 1,
+    borderRadius: 23,
+    width: 46,
+    height: 46,
+    padding: 5,
+    marginLeft: 8
   },
   cont: {
     paddingHorizontal: 16,
-    paddingTop: 65,
+    backgroundColor: COLOR.WHITE,
     flexDirection: 'column'
   },
   title: {
-    fontWeight: '500',
+    fontWeight: '700',
     fontSize: 17,
     lineHeight: 22,
     textTransform: 'uppercase',
@@ -146,21 +200,22 @@ const style = StyleSheet.create({
     flexDirection: 'row'
   },
   shortInfoParam: {
-    fontWeight: '500',
+    fontWeight: '800',
     fontSize: 20,
     lineHeight: 22,
     color: COLOR.BLACK
   },
   shortInfoStaticText: {
-    fontWeight: '400',
-    fontSize: 14,
-    lineHeight: 18,
-    color: COLOR.GREY6
+    paddingTop: 30,
+    paddingBottom: 25,
+    fontWeight: '900',
+    fontSize: 19,
+    color: COLOR.BLACK
   },
   description: {
     fontWeight: '400',
     fontSize: 16,
-    lineHeight: 21,
+    lineHeight: 20,
     color: COLOR.BLACK
   }
 });

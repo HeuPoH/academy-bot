@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Models } from '~models/Models';
@@ -13,20 +13,15 @@ export class Main extends React.Component<
 
   render() {
     return (
-      <View style={style.bgContainer}>
-        <ScrollView style={style.container}>
-          <Specialties model={this.specModel} {...this.props} />
-        </ScrollView>
-      </View>
+      <ScrollView style={style.cont}>
+        <Specialties model={this.specModel} {...this.props} />
+      </ScrollView>
     );
   }
 }
 
 const style = StyleSheet.create({
-  bgContainer: {
-    backgroundColor: COLOR.ORANGE2
-  },
-  container: {
+  cont: {
     borderTopStartRadius: 24,
     borderTopEndRadius: 24,
     backgroundColor: COLOR.WHITE,

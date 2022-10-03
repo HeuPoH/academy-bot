@@ -25,7 +25,6 @@ interface Props extends ScreenNavigationProp<ScreensName.Main> {
 export class Specialties extends BaseView<Props> {
   private bgColors = [
     COLOR.ORANGE3,
-    COLOR.ORANGE3,
     COLOR.WHITE3,
     COLOR.BLUE2,
     COLOR.BLUE3,
@@ -53,15 +52,15 @@ export class Specialties extends BaseView<Props> {
     }));
   }
 
-  private onNavigateTo(id: number, title: string) {
-    this.props.navigation.navigate(ScreensName.Directions, { id, title });
+  private onNavigateTo(id: number) {
+    this.props.navigation.navigate(ScreensName.Directions, { id });
   }
 
   private renderItem = (item: Speciality) => {
     const { icon, name, countUnivers, countDirections, id } = item;
 
     return (
-      <Button color='transparent' styleBtn={row} onPress={() => this.onNavigateTo(id, name)}>
+      <Button color='transparent' styleBtn={row} onPress={() => this.onNavigateTo(id)}>
         {icon}
         <View style={flex1}>
           <Text style={styles.title}>{name}</Text>

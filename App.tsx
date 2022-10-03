@@ -14,7 +14,6 @@ import {
   ScreensName
 } from '~library/StackNavigators';
 import { Models } from '~models/Models';
-import { COLOR } from '~res/colors';
 
 export default class App extends React.Component {
   render() {
@@ -58,7 +57,6 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   rootContainer: {
-    backgroundColor: COLOR.ORANGE2,
     flex: 1
   }
 });

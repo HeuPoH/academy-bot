@@ -35,6 +35,7 @@ export class Direction extends BaseView<Props, State> {
     return {
       header: (p: ScreenNavAndRouteProps<ScreensName.Direction>) => {
         const dir = Models.DirectionsModel().getDirection(p.route.params.dirId);
+
         return (
           <ImageBackground style={styles.headerCont} source={icons.bgDirection}>
             <ButtonToBack

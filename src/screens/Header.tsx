@@ -24,6 +24,7 @@ export function Header() {
 const styles = StyleSheet.create({
   headerCont: {
     paddingHorizontal: 24,
+    backgroundColor: COLOR.ORANGE2,
     paddingBottom: 10,
     paddingTop: 24
   },

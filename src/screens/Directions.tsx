@@ -20,6 +20,7 @@ import {
   ScreensName
 } from '~library/StackNavigators';
 import type { DirectionsModel } from '~models/Directions';
+import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
@@ -31,6 +32,8 @@ export class Directions extends BaseView<Props> {
   static navigationOptions = (): any => {
     return {
       header: (p: ScreenNavAndRouteProps<ScreensName.Directions>) => {
+        const direction = Models.DirectionsModel().getDirection(p.route.params.id);
+
         return (
           <ImageBackground
             style={styles.headerCont}
@@ -41,7 +44,7 @@ export class Directions extends BaseView<Props> {
             <View style={{ ...styles.headerSubTitle, ...row, ...ffSF_ProDisplay_Black }}>
               <Text style={ffSF_ProDisplay_Black}>в сфере </Text>
               <Text style={{ ...textDecorationLine, ...upperCase, ...ffSF_ProDisplay_Black }}>
-                {p.route.params?.title}
+                {direction?.name}
               </Text>
             </View>
           </ImageBackground>

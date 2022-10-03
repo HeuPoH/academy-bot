@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     paddingBottom: 86
   },
   headerTitle: {
-    fontWeight: '600',
+    fontWeight: '900',
     fontSize: 20,
     color: COLOR.BLACK,
     textTransform: 'uppercase',

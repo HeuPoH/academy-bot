@@ -17,6 +17,9 @@ export type University = {
   site: string;
   type: 0 | 1; //частный или гос;
   direction: string;
+  hasMilitary: boolean;
+  hasHostel: boolean;
+  points: number;
 };
 
 const univers: { [key: string]: University[] } = {
@@ -34,7 +37,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: true,
+      hasHostel: true,
+      points: 500
     },
     {
       id: 1,
@@ -49,7 +55,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: true,
+      hasHostel: false,
+      points: 76
     },
     {
       id: 2,
@@ -64,7 +73,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 89
     },
     {
       id: 3,
@@ -79,7 +91,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 100
     },
     {
       id: 4,
@@ -94,7 +109,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 12
     },
     {
       id: 5,
@@ -109,7 +127,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 212
     },
     {
       id: 6,
@@ -124,7 +145,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (1)'
+      direction: 'Управление и экономика (1)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     }
   ],
   'Управление и экономика (2)': [
@@ -141,7 +165,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 1,
@@ -156,7 +183,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 2,
@@ -171,7 +201,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 3,
@@ -186,7 +219,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 4,
@@ -201,7 +237,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 5,
@@ -216,7 +255,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     },
     {
       id: 6,
@@ -231,7 +273,10 @@ const univers: { [key: string]: University[] } = {
       email: 'test@tset.ru',
       site: 'site.ru',
       type: 0,
-      direction: 'Управление и экономика (2)'
+      direction: 'Управление и экономика (2)',
+      hasMilitary: false,
+      hasHostel: false,
+      points: 50
     }
   ]
 };

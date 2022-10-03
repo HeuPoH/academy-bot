@@ -41,5 +41,7 @@ export const icons = {
   bgDirection: require('../bg-direction.png'),
   bgUnversity: require('../bg-university.png'),
   coin: require('../coin.png'),
-  vector: require('./vector.png')
+  vector: require('./vector.png'),
+  warfac: require('./warfac.png'),
+  domin: require('./domin.png')
 };
