@@ -104,7 +104,7 @@ export class Directions extends BaseView<Props> {
         styleBtn={style}
         onPress={() => this.onNavigateTo(direction.id)}
       >
-        <Text style={{ ...styles.itemName, ...ffSF_ProDisplay_Black }}>{direction.name}</Text>
+        <Text style={styles.itemName}>{direction.name}</Text>
         <Image source={icons.arrowRightSmall} />
       </Button>
     );
@@ -152,7 +152,8 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     textTransform: 'uppercase',
     color: COLOR.GREY6,
-    fontWeight: '400'
+    fontWeight: '400',
+    ffSF_ProDisplay_Black
   },
   headerBtnGoBack: {
     paddingBottom: 37

@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
 import { BaseView } from '~library/base/BaseView';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
@@ -22,6 +23,8 @@ import {
 } from '~library/base/baseStyles';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
+import { warfac } from '~res/images/icons/svg/warfac';
+import { domin } from '~res/images/icons/svg/domin';
 import { UniversitiesModel } from '~models/Universities';
 import { Models } from '~models/Models';
 import { styles as baseStyle } from './Directions';
@@ -45,15 +48,19 @@ export class University extends BaseView<Props> {
               goBack={p.navigation.goBack}
             />
             <View style={style.icons}>
-              <View style={style.points}>
+              <View style={{ ...style.icon, ...style.points }}>
                 <Text style={style.pointsParam}>{university.points}</Text>
                 <Text style={style.pointsStaticText}>ЕГЭ</Text>
               </View>
               {university.hasMilitary && (
-                <Image style={style.icon} source={icons.warfac} />
+                <View style={style.icon}>
+                  <SvgXml xml={warfac} />
+                </View>
               )}
               {university.hasHostel && (
-                <Image style={style.icon} source={icons.domin} />
+                <View style={style.icon}>
+                  <SvgXml xml={domin} />
+                </View>
               )}
             </View>
           </ImageBackground>
@@ -73,41 +80,27 @@ export class University extends BaseView<Props> {
 
     return (
       <ScrollView style={style.cont}>
-        <Text style={{ ...style.title, ...ffSF_ProDisplay_Black }}>
-          {university.name}
-        </Text>
-        <Text style={{ ...style.subTitle, ...ffSF_ProDisplay_Black }}>
+        <Text style={style.title}>{university.name}</Text>
+        <Text style={style.subTitle}>
           {university.type ? 'Государственный' : 'Частный'}
         </Text>
         <View style={style.address}>
           <Image source={icons.vector} />
-          <Text style={{ ...style.addressText, ...ffSF_ProDisplay_Black }}>
-            {university.address}
-          </Text>
+          <Text style={style.addressText}>{university.address}</Text>
         </View>
         <View style={style.shortInfo}>
           <View style={{ ...flex1, ...alignItemsCenter }}>
-            <Text style={{ ...style.shortInfoParam, ...ffSF_ProDisplay_Black }}>
-              {university.budgetPlaces}
-            </Text>
+            <Text style={style.shortInfoParam}>{university.budgetPlaces}</Text>
             <Text style={ffSF_ProDisplay_Black}>бюджетных мест</Text>
           </View>
           <View style={{ ...flex1, ...alignItemsCenter }}>
-            <Text style={{ ...style.shortInfoParam, ...ffSF_ProDisplay_Black }}>
-              {university.costPerYear}
-            </Text>
+            <Text style={style.shortInfoParam}>{university.costPerYear}</Text>
             <Text style={ffSF_ProDisplay_Black}>стоимость за год</Text>
           </View>
         </View>
         <View>
-          <Text
-            style={{ ...style.shortInfoStaticText, ...ffSF_ProDisplay_Black }}
-          >
-            Об учебном заведении
-          </Text>
-          <Text style={{ ...style.description, ...ffSF_ProDisplay_Black }}>
-            {university.description}
-          </Text>
+          <Text style={style.shortInfoStaticText}>Об учебном заведении</Text>
+          <Text style={style.description}>{university.description}</Text>
         </View>
       </ScrollView>
     );
@@ -118,26 +111,7 @@ const style = StyleSheet.create({
   headerCont: {
     paddingTop: 25,
     paddingBottom: 165,
-    marginBottom: 40
-  },
-  points: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 75 / 2,
-    borderWidth: 2,
-    width: 75,
-    height: 75,
-    backgroundColor: COLOR.WHITE
-  },
-  pointsParam: {
-    fontSize: 20,
-    color: COLOR.BLACK
-  },
-  pointsStaticText: {
-    fontWeight: '400',
-    fontSize: 11,
-    color: COLOR.GREY6
+    marginBottom: 50
   },
   icons: {
     marginLeft: 16,
@@ -146,15 +120,30 @@ const style = StyleSheet.create({
     alignItems: 'center',
     bottom: -75 / 2
   },
+  points: {
+    flexDirection: 'column',
+    borderRadius: 75 / 2,
+    width: 75,
+    height: 75
+  },
+  pointsParam: {
+    fontSize: 20,
+    color: COLOR.BLACK
+  },
+  pointsStaticText: {
+    fontSize: 11,
+    color: COLOR.GREY6
+  },
   icon: {
     backgroundColor: COLOR.WHITE,
     borderColor: COLOR.BLACK,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 23,
     width: 46,
     height: 46,
-    padding: 5,
-    marginLeft: 8
+    marginLeft: 8,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   cont: {
     paddingHorizontal: 16,
@@ -175,7 +164,8 @@ const style = StyleSheet.create({
     lineHeight: 18,
     textTransform: 'uppercase',
     color: COLOR.BLACK,
-    opacity: 0.5
+    opacity: 0.5,
+    ...ffSF_ProDisplay_Black
   },
   address: {
     paddingTop: 12,
@@ -187,7 +177,8 @@ const style = StyleSheet.create({
     paddingLeft: 8,
     lineHeight: 18,
     textDecorationLine: 'underline',
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    ...ffSF_ProDisplay_Black
   },
   shortInfo: {
     marginTop: 30,
@@ -203,19 +194,22 @@ const style = StyleSheet.create({
     fontWeight: '800',
     fontSize: 20,
     lineHeight: 22,
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    ...ffSF_ProDisplay_Black
   },
   shortInfoStaticText: {
     paddingTop: 30,
     paddingBottom: 25,
     fontWeight: '900',
     fontSize: 19,
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    ...ffSF_ProDisplay_Black
   },
   description: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 20,
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    ...ffSF_ProDisplay_Black
   }
 });

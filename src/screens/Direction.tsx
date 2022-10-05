@@ -126,7 +126,7 @@ export class Direction extends BaseView<Props, State> {
             ...styles.condBtn,
             borderLeftColor: COLOR.GREEN2
           }}
-          styleTxt={{ ...styles.condBtnTitle, ...ffSF_ProDisplay_Black }}
+          styleTxt={styles.condBtnTitle}
           title='С каким ЕГЭ можно поступить'
           onPress={() => this.setState({ showModal: true })}
         />
@@ -135,7 +135,7 @@ export class Direction extends BaseView<Props, State> {
             ...styles.condBtn,
             borderLeftColor: COLOR.ORANGE4
           }}
-          styleTxt={{ ...styles.condBtnTitle, ...ffSF_ProDisplay_Black }}
+          styleTxt={styles.condBtnTitle}
           title='Вузы по специальности'
           onPress={() => this.onNavigateTo(direction.name)}
         />
@@ -194,7 +194,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     textTransform: 'uppercase',
     color: COLOR.GREY6,
-    fontWeight: '400'
+    fontWeight: '400',
+    ...ffSF_ProDisplay_Black
   },
   modalCont: {
     backgroundColor: COLOR.WHITE,

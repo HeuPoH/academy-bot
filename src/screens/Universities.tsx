@@ -36,12 +36,8 @@ export class Universities extends BaseView<Props> {
               styles={styles.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
-            <Text style={{ ...styles.headerTitle, ...ffSF_ProDisplay_Black }}>
-              Вузы по специальности
-            </Text>
-            <Text
-              style={{ ...styles.headerSubTitle, ...ffSF_ProDisplay_Black }}
-            >
+            <Text style={styles.headerTitle}>Вузы по специальности</Text>
+            <Text style={styles.headerSubTitle}>
               {p.route.params?.direction}
             </Text>
           </ImageBackground>
@@ -60,9 +56,7 @@ export class Universities extends BaseView<Props> {
     return (
       <Button onPress={() => this.onNavigateTo(item.id)} styleBtn={styles.item}>
         <Image source={icons.coin} />
-        <Text style={{ ...styles.itemTitle, ...ffSF_ProDisplay_Black }}>
-          {item.name}
-        </Text>
+        <Text style={styles.itemTitle}>{item.name}</Text>
         <Image source={icons.arrowRightSmall} />
       </Button>
     );
@@ -109,7 +103,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: COLOR.BLACK,
     textTransform: 'uppercase',
-    paddingLeft: 16
+    paddingLeft: 16,
+    ...ffSF_ProDisplay_Black
   },
   headerSubTitle: {
     fontWeight: '500',
@@ -118,7 +113,8 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     marginVertical: 10,
     marginHorizontal: 16,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    ...ffSF_ProDisplay_Black
   },
   item: {
     backgroundColor: COLOR.WHITE,
@@ -136,6 +132,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 15,
     lineHeight: 20,
-    flex: 1
+    flex: 1,
+    ...ffSF_ProDisplay_Black
   }
 });
