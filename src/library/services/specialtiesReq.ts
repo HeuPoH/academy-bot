@@ -1,5 +1,6 @@
 import { ImageSourcePropType } from 'react-native';
-import { icons } from '~res/images/icons';
+
+import { iconsSpecialities } from '~res/images/icons/specialties';
 
 export class SpecialtiesReq {
   static getSpecialties() {
@@ -931,63 +932,63 @@ const specialties: Speciality[] = [
     id: 0,
     name: 'Управление и экономика',
     countUnivers: 324,
-    icon: icons.dollar,
+    icon: iconsSpecialities.dollar,
     countDirections: directions[0].length
   },
   {
     id: 1,
     name: 'Техника и технологии',
     countUnivers: 78,
-    icon: icons.rocket,
+    icon: iconsSpecialities.rocket,
     countDirections: directions[1].length
   },
   {
     id: 2,
     name: 'Информационные технологии',
     countUnivers: 90,
-    icon: icons.computer,
+    icon: iconsSpecialities.computer,
     countDirections: directions[2].length
   },
   {
     id: 3,
     name: 'Точные и естественные науки',
     countUnivers: 23,
-    icon: icons.cube,
+    icon: iconsSpecialities.cube,
     countDirections: directions[3].length
   },
   {
     id: 4,
     name: 'Медиа, дизайн и архитектура',
     countUnivers: 40,
-    icon: icons.image,
+    icon: iconsSpecialities.image,
     countDirections: directions[4].length
   },
   {
     id: 5,
     name: 'Искусство и творчество',
     countUnivers: 123,
-    icon: icons.paint,
+    icon: iconsSpecialities.paint,
     countDirections: directions[5].length
   },
   {
     id: 6,
     name: 'Медицина и здравохранение',
     countUnivers: 45,
-    icon: icons.sun,
+    icon: iconsSpecialities.sun,
     countDirections: directions[6].length
   },
   {
     id: 7,
     name: 'Гуманитарные и социальные науки',
     countUnivers: 5,
-    icon: icons.girl,
+    icon: iconsSpecialities.girl,
     countDirections: directions[7].length
   },
   {
     id: 8,
     name: 'Безопаность и военное дело',
     countUnivers: 10,
-    icon: icons.fire,
+    icon: iconsSpecialities.fire,
     countDirections: directions[8].length
   }
 ];

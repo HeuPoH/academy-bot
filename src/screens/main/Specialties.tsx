@@ -9,14 +9,20 @@ import {
 } from 'react-native';
 
 import { Carousel } from '~library/react-controls/Carousel';
-import { ffSF_ProDisplay_Black, flex1, row } from '~library/base/baseStyles';
+import {
+  ff14SF_ProDisplay_Black,
+  ff17SF_ProDisplay_Black,
+  ff24SF_ProDisplay_Black,
+  ffSF_ProDisplay_Black,
+  flex1,
+  row
+} from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Speciality } from '~library/services/SpecialtiesReq';
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Button } from '~library/react-controls/Button';
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
-import { fonts } from '~res/assets/fonts/fonts';
 
 export class Specialties extends BaseView<ScreenNavigationProp<ScreensName.Main>> {
   model = Models.SpecialtiesModel();
@@ -96,10 +102,9 @@ const styles = StyleSheet.create({
     marginBottom: 46
   },
   title: {
-    fontFamily: fonts.SF_ProDisplay_Black,
-    fontSize: 17,
     color: COLOR.BLACK,
-    fontWeight: '500'
+    fontWeight: '500',
+    ...ff17SF_ProDisplay_Black
   },
   icon: {
     borderRadius: 10,
@@ -110,22 +115,18 @@ const styles = StyleSheet.create({
     marginRight: 12
   },
   item: {
-    fontWeight: '700',
-    fontSize: 14,
-    color: COLOR.GREY6,
     flexDirection: 'column'
   },
   orangeText: {
     fontWeight: '400',
-    fontSize: 14,
-    color: COLOR.ORANGE
+    color: COLOR.ORANGE,
+    ...ff14SF_ProDisplay_Black
   },
   contTitle: {
-    fontFamily: fonts.SF_ProDisplay_Black,
     fontWeight: '800',
-    fontSize: 24,
     lineHeight: 28,
     color: COLOR.BLACK,
-    paddingTop: 30
+    paddingTop: 30,
+    ...ff24SF_ProDisplay_Black
   }
 });

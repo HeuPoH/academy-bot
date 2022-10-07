@@ -47,3 +47,18 @@ export const justifyCenter: TextStyle = {
 export const ffSF_ProDisplay_Black: TextStyle = {
   fontFamily: fonts.SF_ProDisplay_Black
 };
+
+export const ff14SF_ProDisplay_Black: TextStyle = {
+  fontSize: 14,
+  ...ffSF_ProDisplay_Black
+};
+
+export const ff17SF_ProDisplay_Black: TextStyle = {
+  fontSize: 17,
+  ...ffSF_ProDisplay_Black
+};
+
+export const ff24SF_ProDisplay_Black: TextStyle = {
+  fontSize: 24,
+  ...ffSF_ProDisplay_Black
+};

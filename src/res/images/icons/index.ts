@@ -32,15 +32,3 @@ export const icons = {
   coin: require('./coin.png'),
   vector: require('./vector.png')
 };
-
-export const iconsSpecialities = {
-  dollar: require('./specialties/dollar.png'),
-  rocket: require('./specialties/rocket.png'),
-  computer: require('./specialties/computer.png'),
-  cube: require('./specialties/cube.png'),
-  fire: require('./specialties/fire.png'),
-  girl: require('./specialties/girl.png'),
-  paint: require('./specialties/paint.png'),
-  sun: require('./specialties/sun.png'),
-  image: require('./specialties/image.png')
-};
