@@ -21,6 +21,8 @@ import { icons } from '~res/images/icons';
 import { COLOR } from '~res/colors';
 import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
 import { Models } from '~models/Models';
+import { SvgXml } from 'react-native-svg';
+import { arrowRightSmall } from '~res/images/icons/svg/arrowRightSmall';
 
 interface Props extends ScreenNavigationProp<ScreensName.Universities> {}
 
@@ -57,7 +59,7 @@ export class Universities extends BaseView<Props> {
       <Button onPress={() => this.onNavigateTo(item.id)} styleBtn={styles.item}>
         <Image source={icons.coin} />
         <Text style={styles.itemTitle}>{item.name}</Text>
-        <Image source={icons.arrowRightSmall} />
+        <SvgXml xml={arrowRightSmall} />
       </Button>
     );
   }

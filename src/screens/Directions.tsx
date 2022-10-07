@@ -2,14 +2,21 @@
 import React from 'react';
 import {
   FlatList,
-  Image,
   ImageBackground,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
-import { ffSF_ProDisplay_Black, row, textDecorationLine, upperCase } from '~library/base/baseStyles';
+import {
+  ff14SF_ProDisplay_Black,
+  ff17SF_ProDisplay_Black,
+  ff20SF_ProDisplay_Black,
+  ffSF_ProDisplay_Black,
+  textDecorationLine,
+  upperCase
+} from '~library/base/baseStyles';
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
@@ -22,6 +29,7 @@ import {
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
+import { arrowRightSmall } from '~res/images/icons/svg/arrowRightSmall';
 
 interface Props extends ScreenNavigationProp<ScreensName.Directions> {}
 
@@ -37,8 +45,8 @@ export class Directions extends BaseView<Props> {
             source={icons.bgDirections}
           >
             <ButtonToBack styles={styles.headerBtnGoBack} goBack={p.navigation.goBack} />
-            <Text style={{ ...styles.headerTitle, ...ffSF_ProDisplay_Black }}>СПЕЦИАЛЬНОСТИ</Text>
-            <View style={{ ...styles.headerSubTitle, ...row, ...ffSF_ProDisplay_Black }}>
+            <Text style={styles.headerTitle}>Направления</Text>
+            <View style={styles.headerSubTitle}>
               <Text style={ffSF_ProDisplay_Black}>в сфере </Text>
               <Text style={{ ...textDecorationLine, ...upperCase, ...ffSF_ProDisplay_Black }}>
                 {direction?.name}
@@ -104,7 +112,7 @@ export class Directions extends BaseView<Props> {
         onPress={() => this.onNavigateTo(direction.id)}
       >
         <Text style={styles.itemName}>{direction.name}</Text>
-        <Image source={icons.arrowRightSmall} />
+        <SvgXml xml={arrowRightSmall} />
       </Button>
     );
   }
@@ -112,7 +120,7 @@ export class Directions extends BaseView<Props> {
   render() {
     const directions = this.model.getDirections();
     if (directions.length === 0) {
-      return <Text style={ffSF_ProDisplay_Black}>Записи не найдены</Text>;
+      return <Text style={ffSF_ProDisplay_Black}>Направления не найдены</Text>;
     }
 
     return (
@@ -148,11 +156,10 @@ export const styles = StyleSheet.create({
     borderLeftWidth: 10
   },
   itemName: {
-    fontSize: 17,
     textTransform: 'uppercase',
     color: COLOR.GREY6,
-    fontWeight: '400',
-    ffSF_ProDisplay_Black
+    fontWeight: '500',
+    ...ff17SF_ProDisplay_Black
   },
   headerBtnGoBack: {
     paddingBottom: 37
@@ -162,18 +169,19 @@ export const styles = StyleSheet.create({
     paddingTop: 25
   },
   headerTitle: {
-    fontWeight: '600',
-    fontSize: 20,
+    fontWeight: '800',
     color: COLOR.BLACK,
     textTransform: 'uppercase',
-    paddingLeft: 16
+    paddingLeft: 16,
+    ...ff20SF_ProDisplay_Black
   },
   headerSubTitle: {
+    flexDirection: 'row',
     fontWeight: '500',
-    fontSize: 14,
     color: COLOR.BLACK,
     marginVertical: 10,
     marginHorizontal: 16,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    ...ff14SF_ProDisplay_Black
   }
 });

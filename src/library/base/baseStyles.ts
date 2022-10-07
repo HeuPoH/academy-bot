@@ -58,6 +58,11 @@ export const ff17SF_ProDisplay_Black: TextStyle = {
   ...ffSF_ProDisplay_Black
 };
 
+export const ff20SF_ProDisplay_Black: TextStyle = {
+  fontSize: 20,
+  ...ffSF_ProDisplay_Black
+};
+
 export const ff24SF_ProDisplay_Black: TextStyle = {
   fontSize: 24,
   ...ffSF_ProDisplay_Black

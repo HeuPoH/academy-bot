@@ -25,7 +25,6 @@ export const icons = {
   microphone: require('./calculator/microphone.png'),
   arrowRight: require('../icons/arrow_right.png'),
   arrowLeft: require('../icons/arrow_left.png'),
-  arrowRightSmall: require('../icons/arrow_right_small.png'),
   bgDirections: require('../bg-directions.png'),
   bgDirection: require('../bg-direction.png'),
   bgUnversity: require('../bg-university.png'),
