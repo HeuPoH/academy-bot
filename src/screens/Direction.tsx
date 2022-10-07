@@ -7,7 +7,12 @@ import {
   View
 } from 'react-native';
 import Modal from 'react-native-modal';
-import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
+import {
+  ff14SF_ProDisplay_Black,
+  ff17SF_ProDisplay_Black,
+  ff20SF_ProDisplay_Black,
+  ffSF_ProDisplay_Black
+} from '~library/base/baseStyles';
 
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
@@ -39,14 +44,8 @@ export class Direction extends BaseView<Props, State> {
               styles={styles.headerBtnGoBack}
               goBack={p.navigation.goBack}
             />
-            <Text style={{ ...styles.headerTitle, ...ffSF_ProDisplay_Black }}>
-              {dir?.name}
-            </Text>
-            <Text
-              style={{ ...styles.headerSubTitle, ...ffSF_ProDisplay_Black }}
-            >
-              {dir?.code}
-            </Text>
+            <Text style={styles.headerTitle}>{dir?.name}</Text>
+            <Text style={styles.headerSubTitle}>{dir?.code}</Text>
           </ImageBackground>
         );
       }
@@ -72,20 +71,13 @@ export class Direction extends BaseView<Props, State> {
           <View style={styles.modalConds} key={i}>
             <View>
               {cond.title.map((t, j) => (
-                <Text
-                  style={{ ...styles.modalCondsText, ...ffSF_ProDisplay_Black }}
-                  key={j}
-                >
+                <Text style={styles.modalCondsText} key={j}>
                   {t}
                 </Text>
               ))}
             </View>
             <View>
-              <Text
-                style={{ ...styles.modalCondsText, ...ffSF_ProDisplay_Black }}
-              >
-                {cond.count}
-              </Text>
+              <Text style={styles.modalCondsText}>{cond.count}</Text>
             </View>
           </View>
         );
@@ -156,18 +148,18 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontWeight: '600',
-    fontSize: 20,
     color: COLOR.BLACK,
     textTransform: 'uppercase',
-    paddingLeft: 16
+    paddingLeft: 16,
+    ...ff20SF_ProDisplay_Black
   },
   headerSubTitle: {
     fontWeight: '500',
-    fontSize: 14,
     color: COLOR.BLACK,
     opacity: 0.5,
     marginVertical: 10,
-    marginHorizontal: 16
+    marginHorizontal: 16,
+    ...ff14SF_ProDisplay_Black
   },
   descBlock: {
     fontWeight: '400',
@@ -210,7 +202,7 @@ const styles = StyleSheet.create({
   },
   modalCondsText: {
     fontWeight: '500',
-    fontSize: 17,
-    color: COLOR.BLACK
+    color: COLOR.BLACK,
+    ...ff17SF_ProDisplay_Black
   }
 });
