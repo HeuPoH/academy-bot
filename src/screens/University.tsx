@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -25,6 +24,7 @@ import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 import { warfac } from '~res/images/icons/svg/warfac';
 import { domin } from '~res/images/icons/svg/domin';
+import { vector } from '~res/images/icons/svg/vector';
 import { Models } from '~models/Models';
 import { styles as baseStyle } from './Directions';
 
@@ -70,7 +70,6 @@ export class University extends BaseView<Props> {
 
   render() {
     const university = this.model.getUniversity(this.props.route.params.id);
-
     if (!university) {
       return <Text style={ffSF_ProDisplay_Black}>Университет не найден</Text>;
     }
@@ -82,7 +81,7 @@ export class University extends BaseView<Props> {
           {university.type ? 'Государственный' : 'Частный'}
         </Text>
         <View style={style.address}>
-          <Image source={icons.vector} />
+          <SvgXml xml={vector} />
           <Text style={style.addressText}>{university.address}</Text>
         </View>
         <View style={style.shortInfo}>
