@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { icons } from '~res/images/icons';
+import { arrowLeftSmall } from '~res/images/icons/svg/arrowLeftSmall';
 import { IconButton } from './IconButton';
 
 export function ButtonToBack(p: {
@@ -15,7 +14,8 @@ export function ButtonToBack(p: {
       color='transparent'
       title='Назад'
       onPress={p.goBack}
-      src={icons.arrowLeft}
+      type='svg'
+      src={arrowLeftSmall}
     />
   );
 }

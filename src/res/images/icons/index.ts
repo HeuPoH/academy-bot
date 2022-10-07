@@ -24,10 +24,8 @@ export const icons = {
   pin: require('./calculator/pin.png'),
   microphone: require('./calculator/microphone.png'),
   arrowRight: require('../icons/arrow_right.png'),
-  arrowLeft: require('../icons/arrow_left.png'),
   bgDirections: require('../bg-directions.png'),
   bgDirection: require('../bg-direction.png'),
   bgUnversity: require('../bg-university.png'),
-  coin: require('./coin.png'),
-  vector: require('./vector.png')
+  coin: require('./coin.png')
 };
