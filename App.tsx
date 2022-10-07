@@ -13,7 +13,6 @@ import {
   RootStack,
   ScreensName
 } from '~library/StackNavigators';
-import { Models } from '~models/Models';
 
 export default class App extends React.Component {
   render() {
@@ -27,27 +26,23 @@ export default class App extends React.Component {
             <RootStack.Screen
               name={ScreensName.Directions}
               options={DirectionsScreen.navigationOptions}
-            >
-              {(p) => <DirectionsScreen model={Models.DirectionsModel()} {...p} />}
-            </RootStack.Screen>
+              component={DirectionsScreen}
+            />
             <RootStack.Screen
               name={ScreensName.Direction}
               options={DirectionScreen.navigationOptions}
-            >
-              {(p) => <DirectionScreen model={Models.DirectionsModel()} {...p} />}
-            </RootStack.Screen>
+              component={DirectionScreen}
+            />
             <RootStack.Screen
               name={ScreensName.Universities}
               options={UniversitiesScreen.navigationOptions}
-            >
-              {(p) => <UniversitiesScreen model={Models.UniversitiesModel()} {...p} />}
-            </RootStack.Screen>
+              component={UniversitiesScreen}
+            />
             <RootStack.Screen
               name={ScreensName.University}
               options={UniversityScreen.navigationOptions}
-            >
-              {(p) => <UniversityScreen model={Models.UniversitiesModel()} {...p} />}
-            </RootStack.Screen>
+              component={UniversityScreen}
+            />
           </RootStack.Navigator>
         </View>
       </NavigationContainer>

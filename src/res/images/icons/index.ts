@@ -13,17 +13,6 @@ export const icons = {
   profile0: require('./profile0.png'),
   profile1: require('./profile1.png'),
   logo: require('./logo.png'),
-  dollar: require('./specialties/dollar.png'),
-  rocket: require('./specialties/rocket.png'),
-  computer: require('./specialties/computer.png'),
-  cube: require('./specialties/cube.png'),
-  fire: require('./specialties/fire.png'),
-  girl: require('./specialties/girl.png'),
-  paint: require('./specialties/paint.png'),
-  sun: require('./specialties/sun.png'),
-  image: require('./specialties/image.png'),
-  foto1: require('./1.png'),
-  foto2: require('./2.png'),
   math: require('./calculator/math.png'),
   text: require('./calculator/text.png'),
   notebook: require('./calculator/notebook.png'),
@@ -42,4 +31,16 @@ export const icons = {
   bgUnversity: require('../bg-university.png'),
   coin: require('./coin.png'),
   vector: require('./vector.png')
+};
+
+export const iconsSpecialities = {
+  dollar: require('./specialties/dollar.png'),
+  rocket: require('./specialties/rocket.png'),
+  computer: require('./specialties/computer.png'),
+  cube: require('./specialties/cube.png'),
+  fire: require('./specialties/fire.png'),
+  girl: require('./specialties/girl.png'),
+  paint: require('./specialties/paint.png'),
+  sun: require('./specialties/sun.png'),
+  image: require('./specialties/image.png')
 };

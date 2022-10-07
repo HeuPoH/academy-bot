@@ -25,13 +25,10 @@ import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 import { warfac } from '~res/images/icons/svg/warfac';
 import { domin } from '~res/images/icons/svg/domin';
-import { UniversitiesModel } from '~models/Universities';
 import { Models } from '~models/Models';
 import { styles as baseStyle } from './Directions';
 
-interface Props extends ScreenNavigationProp<ScreensName.University> {
-  model: UniversitiesModel;
-}
+interface Props extends ScreenNavigationProp<ScreensName.University> {}
 
 export class University extends BaseView<Props> {
   static navigationOptions = (): any => {
@@ -69,10 +66,10 @@ export class University extends BaseView<Props> {
     };
   };
 
+  protected model = Models.UniversitiesModel();
+
   render() {
-    const university = this.props.model.getUniversity(
-      this.props.route.params.id
-    );
+    const university = this.model.getUniversity(this.props.route.params.id);
 
     if (!university) {
       return <Text style={ffSF_ProDisplay_Black}>Университет не найден</Text>;

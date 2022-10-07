@@ -17,14 +17,11 @@ import {
   ScreenNavigationProp,
   ScreensName
 } from '~library/StackNavigators';
-import { DirectionsModel } from '~models/Directions';
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
-interface Props extends ScreenNavigationProp<ScreensName.Direction> {
-  model: DirectionsModel;
-}
+interface Props extends ScreenNavigationProp<ScreensName.Direction> {}
 
 interface State {
   showModal: boolean;
@@ -56,6 +53,8 @@ export class Direction extends BaseView<Props, State> {
     };
   };
 
+  protected model = Models.DirectionsModel();
+
   constructor(p: Props) {
     super(p);
     this.state = { showModal: false };
@@ -66,7 +65,7 @@ export class Direction extends BaseView<Props, State> {
   };
 
   private renderModal() {
-    const conditions = this.props.model
+    const conditions = this.model
       .getConditions(this.props.route.params.dirId)
       .map((cond, i) => {
         return (
@@ -112,7 +111,7 @@ export class Direction extends BaseView<Props, State> {
 
   render() {
     const id = this.props.route.params.dirId;
-    const direction = this.props.model.getDirection(id);
+    const direction = this.model.getDirection(id);
     if (!direction) {
       return <Text style={ffSF_ProDisplay_Black}>Направление не найдено</Text>;
     }

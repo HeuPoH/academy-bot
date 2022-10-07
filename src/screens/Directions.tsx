@@ -19,14 +19,11 @@ import {
   ScreenNavigationProp,
   ScreensName
 } from '~library/StackNavigators';
-import type { DirectionsModel } from '~models/Directions';
 import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { icons } from '~res/images/icons';
 
-interface Props extends ScreenNavigationProp<ScreensName.Directions> {
-  model: DirectionsModel;
-}
+interface Props extends ScreenNavigationProp<ScreensName.Directions> {}
 
 export class Directions extends BaseView<Props> {
   static navigationOptions = (): any => {
@@ -74,9 +71,11 @@ export class Directions extends BaseView<Props> {
     '#000000'
   ];
 
+  protected model = Models.DirectionsModel();
+
   componentDidMount(): void {
-    const { model, route } = this.props;
-    model.fetch({ specId: route.params.id });
+    const { route } = this.props;
+    this.model.fetch({ specId: route.params.id });
     super.componentDidMount();
   }
 
@@ -111,7 +110,7 @@ export class Directions extends BaseView<Props> {
   }
 
   render() {
-    const directions = this.props.model.getDirections();
+    const directions = this.model.getDirections();
     if (directions.length === 0) {
       return <Text style={ffSF_ProDisplay_Black}>Записи не найдены</Text>;
     }

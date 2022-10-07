@@ -14,15 +14,13 @@ import { BaseView } from '~library/base/BaseView';
 import { Speciality } from '~library/services/SpecialtiesReq';
 import { ScreenNavigationProp, ScreensName } from '~library/StackNavigators';
 import { Button } from '~library/react-controls/Button';
-import { SpecialtiesModel } from '~models/Specialties';
+import { Models } from '~models/Models';
 import { COLOR } from '~res/colors';
 import { fonts } from '~res/assets/fonts/fonts';
 
-interface Props extends ScreenNavigationProp<ScreensName.Main> {
-  model: SpecialtiesModel;
-}
+export class Specialties extends BaseView<ScreenNavigationProp<ScreensName.Main>> {
+  model = Models.SpecialtiesModel();
 
-export class Specialties extends BaseView<Props> {
   private bgColors = [
     COLOR.ORANGE3,
     COLOR.WHITE3,
@@ -36,12 +34,12 @@ export class Specialties extends BaseView<Props> {
   ];
 
   componentDidMount() {
-    this.props.model.fetch();
+    this.model.fetch();
     super.componentDidMount();
   }
 
   private getSpecialties() {
-    return this.props.model.getSpecialties().map((spec, i) => ({
+    return this.model.getSpecialties().map((spec, i) => ({
       ...spec,
       icon: (
         <Image

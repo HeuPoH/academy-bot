@@ -17,14 +17,12 @@ import {
 import { University } from '~library/services/UniversitiesReq';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
 import { Button } from '~library/react-controls/Button';
-import { UniversitiesModel } from '~models/Universities';
 import { icons } from '~res/images/icons';
 import { COLOR } from '~res/colors';
 import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
+import { Models } from '~models/Models';
 
-interface Props extends ScreenNavigationProp<ScreensName.Universities> {
-  model: UniversitiesModel;
-}
+interface Props extends ScreenNavigationProp<ScreensName.Universities> {}
 
 export class Universities extends BaseView<Props> {
   static navigationOptions = (): any => {
@@ -46,9 +44,11 @@ export class Universities extends BaseView<Props> {
     };
   };
 
+  protected model = Models.UniversitiesModel();
+
   componentDidMount(): void {
     const direction = this.props.route.params.direction;
-    this.props.model.fetch(direction);
+    this.model.fetch(direction);
     super.componentDidMount();
   }
 
@@ -67,7 +67,7 @@ export class Universities extends BaseView<Props> {
   }
 
   render() {
-    const univers = this.props.model.getUniversities();
+    const univers = this.model.getUniversities();
     if (!univers.length) {
       return <Text style={ffSF_ProDisplay_Black}>Университеты не найдены</Text>;
     }

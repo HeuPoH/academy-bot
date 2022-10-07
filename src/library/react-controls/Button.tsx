@@ -8,8 +8,13 @@ import {
   View
 } from 'react-native';
 
-import { textAlignCenter } from '~library/base/baseStyles';
+import {
+  ffSF_ProDisplay_Black,
+  textAlignCenter
+} from '~library/base/baseStyles';
 import { COLOR } from '~res/colors';
+
+type Color = 'pinky' | 'grey' | 'black' | 'orange' | 'transparent';
 
 export type ButtonProps = {
   title?: string | JSX.Element;
@@ -20,8 +25,6 @@ export type ButtonProps = {
   styleTxt?: StyleProp<any>;
   children?: any;
 };
-
-type Color = 'pinky' | 'grey' | 'black' | 'orange' | 'transparent';
 
 export function Button(props: ButtonProps) {
   const {
@@ -37,7 +40,11 @@ export function Button(props: ButtonProps) {
     () =>
       StyleSheet.create({
         button: { ...btnStyles[`${color}Btn`], ...styleBtn },
-        text: { ...btnStyles[`${color}Text`], ...styleTxt }
+        text: {
+          ...btnStyles[`${color}Text`],
+          ...styleTxt,
+          ...ffSF_ProDisplay_Black
+        }
       }),
     [styleBtn, styleTxt, color]
   );
