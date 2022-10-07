@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
 import { BaseView } from '~library/base/BaseView';
 import {
@@ -17,12 +18,11 @@ import {
 import { University } from '~library/services/UniversitiesReq';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
 import { Button } from '~library/react-controls/Button';
+import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
 import { icons } from '~res/images/icons';
 import { COLOR } from '~res/colors';
-import { ffSF_ProDisplay_Black } from '~library/base/baseStyles';
-import { Models } from '~models/Models';
-import { SvgXml } from 'react-native-svg';
 import { arrowRightSmall } from '~res/images/icons/svg/arrowRightSmall';
+import { Models } from '~models/Models';
 
 interface Props extends ScreenNavigationProp<ScreensName.Universities> {}
 
@@ -57,7 +57,7 @@ export class Universities extends BaseView<Props> {
   private renderItem(item: University) {
     return (
       <Button onPress={() => this.onNavigateTo(item.id)} styleBtn={styles.item}>
-        <Image source={icons.coin} />
+        <Image style={styles.icon} source={icons.coin} />
         <Text style={styles.itemTitle}>{item.name}</Text>
         <SvgXml xml={arrowRightSmall} />
       </Button>
@@ -127,6 +127,10 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  icon: {
+    width: 40,
+    height: 40
   },
   itemTitle: {
     paddingLeft: 12,

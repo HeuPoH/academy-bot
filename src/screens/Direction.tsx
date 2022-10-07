@@ -7,13 +7,13 @@ import {
   View
 } from 'react-native';
 import Modal from 'react-native-modal';
+
 import {
   ff14SF_ProDisplay_Black,
   ff17SF_ProDisplay_Black,
   ff20SF_ProDisplay_Black,
   ffSF_ProDisplay_Black
 } from '~library/base/baseStyles';
-
 import { BaseView } from '~library/base/BaseView';
 import { Button } from '~library/react-controls/Button';
 import { ButtonToBack } from '~library/react-controls/ButtonToBack';
